@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Flask-specific
+instance/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Testing and tools
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+*.env

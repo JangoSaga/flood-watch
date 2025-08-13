@@ -1,0 +1,29 @@
+"use client"
+
+import dynamic from 'next/dynamic'
+
+const MapComponent = dynamic(() => import('./map-component'), {
+  ssr: false,
+  loading: () => (
+    <div className="bg-gray-100 rounded-lg p-4 min-h-[500px] flex items-center justify-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+    </div>
+  )
+})
+
+interface HeatmapData {
+  city: string
+  lat: number
+  lon: number
+  damage: number
+  prediction: number
+  precipitation: number
+}
+
+interface DamageHeatmapProps {
+  data: HeatmapData[]
+}
+
+export default function DamageHeatmap({ data }: DamageHeatmapProps) {
+  return <MapComponent data={data} type="damage" />
+}
