@@ -3,37 +3,70 @@ import datetime
 import pickle
 import requests
 import os
-import sys
-sys.path.append('..')
-from config import VISUAL_CROSSING_API_KEY
 
 def get_data(lat, lon):
+    # Open-Meteo API for forecast data
+    BASE_URL = "https://api.open-meteo.com/v1/forecast"
+    
+    params = {
+        'latitude': lat,
+        'longitude': lon,
+        'daily': 'temperature_2m_mean,temperature_2m_max,wind_speed_10m_max,cloud_cover_mean,precipitation_sum,relative_humidity_2m_mean',
+        'forecast_days': 15,
+        'timezone': 'auto'
+    }
+    
     try:
-        k = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast?locations=" + str(lat) + "%2C%20" + str(lon) + "&aggregateHours=24&unitGroup=us&shortColumnNames=false&contentType=json&key="+VISUAL_CROSSING_API_KEY
-        x = requests.get(k).json()['locations']
-        for i in x:
-            y = x[i]['values']
-
-        final = [0, 0, 0, 0, 0, 0]
-
-        for j in y:
-            final[0] += j['temp']
-            if j['maxt'] > final[1]:
-                final[1] = j['maxt']
-            final[2] += j['wspd']
-            final[3] += j['cloudcover']
-            final[4] += j['precip']
-            final[5] += j['humidity']
-        final[0] /= 15
-        final[2] /= 15
-        final[3] /= 15
-        final[5] /= 15
-
+        print(f"Fetching forecast for lat: {lat}, lon: {lon}")
+        response = requests.get(BASE_URL, params=params, timeout=10)
+        
+        if response.status_code != 200:
+            print(f"API Error: Status {response.status_code}")
+            print(f"Response: {response.text}")
+            return [0, 0, 0, 0, 0, 0]
+        
+        data = response.json()
+        
+        if 'daily' not in data:
+            print(f"No daily data in response: {data}")
+            return [0, 0, 0, 0, 0, 0]
+        
+        daily_data = data['daily']
+        
+        # Handle None values and calculate averages
+        def safe_avg(values):
+            clean_values = [v for v in values if v is not None]
+            return sum(clean_values) / len(clean_values) if clean_values else 0
+        
+        def safe_max(values):
+            clean_values = [v for v in values if v is not None]
+            return max(clean_values) if clean_values else 0
+        
+        def safe_sum(values):
+            clean_values = [v for v in values if v is not None]
+            return sum(clean_values) if clean_values else 0
+        
+        # Calculate averages and totals over 15 days
+        temp_avg = safe_avg(daily_data['temperature_2m_mean'])
+        temp_max = safe_max(daily_data['temperature_2m_max'])
+        wspd_avg = safe_avg(daily_data['wind_speed_10m_max'])
+        cloudcover_avg = safe_avg(daily_data['cloud_cover_mean'])
+        precip_total = safe_sum(daily_data['precipitation_sum'])
+        humidity_avg = safe_avg(daily_data['relative_humidity_2m_mean'])
+        
+        final = [temp_avg, temp_max, wspd_avg, cloudcover_avg, precip_total, humidity_avg]
+        print(f"Success: {final}")
         return final
+        
+    except requests.exceptions.Timeout:
+        print("Request timeout")
+        return [0, 0, 0, 0, 0, 0]
+    except requests.exceptions.RequestException as e:
+        print(f"Request error: {e}")
+        return [0, 0, 0, 0, 0, 0]
     except Exception as e:
-        print(f"Error fetching weather data: {e}")
-        # Return default values if API fails
-        return [75.0, 85.0, 10.0, 50.0, 5.0, 70.0]
+        print(f"Error fetching forecast data: {e}")
+        return [0, 0, 0, 0, 0, 0]
 
 def testConnection():
     return "yo"
