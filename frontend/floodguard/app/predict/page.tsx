@@ -50,10 +50,15 @@ export default function PredictPage() {
   const fetchCities = async () => {
     try {
       const response = await api.getCities()
-      if (response.success && response.data) {
-        setCities(response.data)
+      const arr = Array.isArray((response as any)?.data?.cities)
+        ? (response as any).data.cities
+        : Array.isArray((response as any)?.data)
+        ? (response as any).data
+        : []
+      if (Array.isArray(arr) && arr.length > 0) {
+        setCities(arr as string[])
       } else {
-        console.warn('Using fallback cities:', response.error)
+        console.warn('Using fallback cities:', (response as any)?.error)
         setCities(fallbackData.cities)
       }
     } catch (err) {
@@ -143,7 +148,7 @@ export default function PredictPage() {
                   <SelectValue placeholder={citiesLoading ? "Loading cities..." : "Choose a city"} />
                 </SelectTrigger>
                 <SelectContent>
-                  {cities.map((city) => (
+                  {(cities || []).map((city) => (
                     <SelectItem key={city} value={city}>
                       {city}
                     </SelectItem>
