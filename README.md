@@ -171,21 +171,17 @@ curl http://localhost:5000/api/forecast/city/Mumbai
 4. Test thoroughly
 5. Submit a pull request
 
-## 📷 Screenshots (to be added)
+## 📷 Screenshots
 
-Add example outputs here to help users understand the UI and API responses. Suggested locations and captions:
+The following screenshots are available under `docs/screenshots/`.
 
-- `docs/screenshots/home.png` — Homepage overview
-- `docs/screenshots/plots_map.png` — Plots map with precipitation and predictions
-- `docs/screenshots/heatmap.png` — Damage/risk heatmap
-- `docs/screenshots/city_forecast.png` — City forecast view (e.g., Pune)
-- `docs/screenshots/health_check.png` — `/api/health` response example
+![Screenshot 1](docs/screenshots/image1.png)
 
-Embed once added, for example:
+![Screenshot 2](docs/screenshots/image2.png)
 
-```markdown
-![Plots Map](docs/screenshots/plots_map.png)
-```
+![Screenshot 3](docs/screenshots/image3.png)
+
+![Screenshot 4](docs/screenshots/image4.png)
 
 ---
 
