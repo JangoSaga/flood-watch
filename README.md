@@ -1,4 +1,4 @@
-# FloodML - Machine Learning Flood Prediction System
+# FloodWatch - Machine Learning Flood Prediction System
 
 A flood prediction and analysis system with a Flask backend and a Next.js frontend. The backend serves pre-generated 7‑day forecasts and analysis endpoints; the frontend provides maps, heatmaps, and city views.
 
