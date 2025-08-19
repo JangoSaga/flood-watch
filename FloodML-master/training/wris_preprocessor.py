@@ -43,8 +43,9 @@ def save_processed_data(df, output_path):
 
 if __name__ == "__main__":
     script_dir = os.path.dirname(__file__)
-    input_path = os.path.join(script_dir,'wris-data.csv')
-    output_path = os.path.join(script_dir,'processed_wris_data.csv')
+    project_root = os.path.dirname(script_dir)
+    input_path = os.path.join(project_root,'data','wris-data.csv')
+    output_path = os.path.join(project_root,'data','processed_wris_data.csv')
     
     # Process the data
     processed_df = preprocess_wris_data(input_path)

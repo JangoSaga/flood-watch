@@ -159,26 +159,42 @@ def create_enhanced_training_data(cities_coords_path, aggregated_reservoir_path)
     # Load cities coordinates
     cities_coords = {}
     with open(cities_coords_path, 'r', encoding='UTF-8') as f:
-        reader = csv.reader(f)
+        reader = csv.DictReader(f)
         for row in reader:
-            if len(row) >= 3:
-                cities_coords[row[0]] = {'lat': float(row[1]), 'lon': float(row[2])}
+            try:
+                city = row['city']
+                lat = float(row['latitude'])
+                lon = float(row['longitude'])
+                cities_coords[city] = {'lat': lat, 'lon': lon}
+            except (KeyError, ValueError, TypeError):
+                # Skip malformed rows
+                continue
     
     training_data = []
     
-    # Generate training data for Maharashtra cities
-    maharashtra_cities = ['Mumbai', 'Pune', 'Nashik', 'Nagpur', 'Kolhapur']
+    # Read all cities from cities.csv instead of hardcoded list
+    all_cities = list(cities_coords.keys())
+    print(f"Found {len(all_cities)} cities in cities.csv")
     
-    for city in maharashtra_cities:
-        if city not in cities_coords:
-            print(f"No coordinates for {city}, skipping...")
-            continue
-            
+    # Reduce samples per city to manage dataset size
+    if len(all_cities) > 50:
+        samples_per_city = 20  # For large number of cities
+    elif len(all_cities) > 20:
+        samples_per_city = 30  # For medium number of cities  
+    else:
+        samples_per_city = 50  # For small number of cities
+    
+    print(f"Generating {samples_per_city} samples per city")
+    
+    for city in all_cities:
         coords = cities_coords[city]
         print(f"Generating training data for {city}...")
         
-        # Generate random historical dates
-        for _ in range(100):  # 100 samples per city
+        # Generate samples for this city
+        for _ in range(samples_per_city):
+            year = np.random.randint(2019, 2025)
+            month = np.random.randint(1, 13)
+            day = np.random.randint(1, 29)  # Safe day range
             year = np.random.randint(2019, 2025)
             month = np.random.randint(1, 13)
             day = np.random.randint(1, 29)  # Safe day range
@@ -218,9 +234,9 @@ if __name__ == "__main__":
     import numpy as np
     
     script_dir = os.path.dirname(__file__)
-    cities_path = os.path.join(script_dir, 'cities.csv')
-    reservoir_path = os.path.join(script_dir, 'aggregated_reservoir_data.csv')
-    output_path = os.path.join(script_dir, 'enhanced_training_data.csv')
+    cities_path = os.path.join(script_dir,'data', 'cities.csv')
+    reservoir_path = os.path.join(script_dir, 'data', 'aggregated_reservoir_data.csv')
+    output_path = os.path.join(script_dir, 'data', 'enhanced_training_data.csv')
     
     # Create training data
     training_data = create_enhanced_training_data(cities_path, reservoir_path)

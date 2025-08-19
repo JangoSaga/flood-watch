@@ -145,24 +145,35 @@ def add_temporal_features(df):
         city_data['Reservoir_Trend_15d'] = city_data['Avg_Reservoir_Fill'].rolling(
             window=15, min_periods=2
         ).apply(lambda x: x.iloc[-1] - x.iloc[0] if len(x) >= 2 else 0)
-        # Before line 149, add:
-        df['Reservoir_Trend_7d'] = df['Reservoir_Trend_7d'].astype(float)
-        df['Reservoir_Trend_15d'] = df['Reservoir_Trend_15d'].astype(float)
+        
         df.loc[city_mask, 'Reservoir_Trend_7d'] = city_data['Reservoir_Trend_7d']
         df.loc[city_mask, 'Reservoir_Trend_15d'] = city_data['Reservoir_Trend_15d']
     
     return df
 
 if __name__ == "__main__":
-    script_dir = os.path.dirname(__file__)
-    processed_data_path = os.path.join(script_dir,'processed_wris_data.csv')
-    output_path = os.path.join(script_dir, 'aggregated_reservoir_data.csv')
+    import csv
     
-    # List of Maharashtra cities
-    maharashtra_cities = ['Mumbai', 'Pune', 'Nashik', 'Nagpur', 'Kolhapur']
+    script_dir = os.path.dirname(__file__)
+    processed_data_path = os.path.join(script_dir, 'data', 'processed_wris_data.csv')
+    output_path = os.path.join(script_dir, 'data', 'aggregated_reservoir_data.csv')
+    cities_path = os.path.join(script_dir,'data', 'cities.csv')
+    
+    # Read all cities from cities.csv
+    cities_list = []
+    try:
+        with open(cities_path, 'r', encoding='UTF-8') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                if len(row) >= 1:
+                    cities_list.append(row[0])
+        print(f"Found {len(cities_list)} cities in cities.csv")
+    except FileNotFoundError:
+        print("cities.csv not found, using default Maharashtra cities")
+        cities_list = ['Mumbai', 'Pune', 'Nashik', 'Nagpur', 'Kolhapur']
     
     # Aggregate reservoir data
-    aggregated_df = aggregate_reservoirs_by_city(processed_data_path, maharashtra_cities)
+    aggregated_df = aggregate_reservoirs_by_city(processed_data_path, cities_list)
     
     # Add temporal features
     aggregated_df = add_temporal_features(aggregated_df)
