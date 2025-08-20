@@ -24,12 +24,18 @@ interface PlotData {
   lon: number
   precipitation: number
   prediction: number
+  riskCategory?: string
+  probability?: number
+  explanation?: string
 }
 
 export default function PlotsPage() {
   const [plotData, setPlotData] = useState<PlotData[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [grouped, setGrouped] = useState<any[]>([])
+  const [availableDates, setAvailableDates] = useState<string[]>([])
+  const [selectedDate, setSelectedDate] = useState<string>("")
 
   useEffect(() => {
     fetchPlotData()
@@ -40,19 +46,29 @@ export default function PlotsPage() {
       const { success, data, error } = await api.getPlotsData()
       if (!success || !data) throw new Error(error || 'Failed to fetch plot data')
 
-      // Flask returns { plotting_data: [...] } with multiple dates. Use the latest date.
-      const list = Array.isArray((data as any).plotting_data) ? (data as any).plotting_data : []
-      if (list.length === 0) throw new Error('Empty plotting data')
+      // With grouped-by-city default, backend returns { plotting_data: [{ City, coordinates?, days: [...] }], grouped: true }
+      const groups = Array.isArray((data as any).plotting_data) ? (data as any).plotting_data : []
+      if (groups.length === 0) throw new Error('Empty plotting data')
 
-      const latestDate = list.map((d: any) => d.Date).sort().slice(-1)[0]
-      const latest = list.filter((d: any) => d.Date === latestDate)
-      const mapped: PlotData[] = latest.map((d: any) => ({
-        city: d.City,
-        lat: Number(d.Latitude),
-        lon: Number(d.Longitude),
-        precipitation: Number(d.Precipitation ?? d.Weather_Precip ?? 0),
-        prediction: Number(d.Flood_Risk ?? d.Predicted_Flood_Risk ?? 0),
-      }))
+      setGrouped(groups)
+
+      // Collect unique available dates from the grouped days
+      const dateSet = new Set<string>()
+      for (const g of groups) {
+        const days = Array.isArray(g.days) ? g.days : []
+        for (const d of days) {
+          if (d?.Date) dateSet.add(String(d.Date))
+        }
+      }
+      const sortedDates = Array.from(dateSet).sort()
+      setAvailableDates(sortedDates)
+
+      // Pick latest by default
+      const defaultDate = sortedDates[sortedDates.length - 1]
+      setSelectedDate(defaultDate)
+
+      // Build plot data for the default date
+      const mapped: PlotData[] = buildPlotDataForDate(groups, defaultDate)
       setPlotData(mapped)
     } catch (err) {
       console.error('Error fetching plot data:', err)
@@ -70,8 +86,43 @@ export default function PlotsPage() {
     }
   }
 
-  const safeAreas = plotData.filter(item => item.prediction === 0).length
-  const riskAreas = plotData.filter(item => item.prediction === 1).length
+  const buildPlotDataForDate = (groups: any[], date: string): PlotData[] => {
+    const out: PlotData[] = []
+    for (const g of groups) {
+      const days = Array.isArray(g.days) ? g.days : []
+      const day = days.find((d: any) => String(d.Date) === date) || null
+      if (!day) continue
+      out.push({
+        city: String(g.City ?? day.City ?? ''),
+        lat: Number(day.Latitude),
+        lon: Number(day.Longitude),
+        precipitation: Number(day.Precipitation ?? day.Weather_Precip ?? 0),
+        prediction: Number(day.Flood_Risk ?? day.Predicted_Flood_Risk ?? 0),
+        riskCategory: String(day.Risk_Category ?? ''),
+        probability: Number(day.Flood_Probability ?? 0),
+        explanation: typeof day.explanation === 'string' ? day.explanation : undefined,
+      })
+    }
+    return out
+  }
+
+  const categorize = (rc?: string, pred?: number) => {
+    const v = (rc || '').toString().trim().toLowerCase()
+    if (v) return v
+    // fallback from binary prediction
+    return pred === 1 ? 'high' : 'low'
+  }
+  const counts = plotData.reduce(
+    (acc, it) => {
+      const c = categorize(it.riskCategory, it.prediction)
+      if (c === 'critical') acc.critical++
+      else if (c === 'high') acc.high++
+      else if (c === 'medium') acc.medium++
+      else acc.low++
+      return acc
+    },
+    { low: 0, medium: 0, high: 0, critical: 0 }
+  )
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -98,6 +149,25 @@ export default function PlotsPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
+            {/* Date selector */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
+              <label className="text-sm text-gray-700">
+                Select date:
+              </label>
+              <select
+                className="border rounded px-3 py-2 text-sm w-full md:w-auto"
+                value={selectedDate}
+                onChange={(e) => {
+                  const newDate = e.target.value
+                  setSelectedDate(newDate)
+                  setPlotData(buildPlotDataForDate(grouped, newDate))
+                }}
+              >
+                {availableDates.map((d) => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
+              </select>
+            </div>
             {loading ? (
               <div className="bg-gray-100 rounded-lg p-4 min-h-[600px] flex items-center justify-center">
                 <div className="text-center">
@@ -111,33 +181,63 @@ export default function PlotsPage() {
           </CardContent>
         </Card>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-5 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">Safe Areas</CardTitle>
+              <CardTitle className="text-lg">Low</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-green-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">Low flood risk regions</span>
+                  <span className="text-gray-700">Low risk regions</span>
                 </div>
-                <span className="text-2xl font-bold text-green-600">{safeAreas}</span>
+                <span className="text-2xl font-bold text-green-600">{counts.low}</span>
               </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">High Risk Areas</CardTitle>
+              <CardTitle className="text-lg">Medium</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-amber-500 rounded-full mr-3"></div>
+                  <span className="text-gray-700">Medium risk zones</span>
+                </div>
+                <span className="text-2xl font-bold text-amber-600">{counts.medium}</span>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">High</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-red-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">High flood risk zones</span>
+                  <span className="text-gray-700">High risk zones</span>
                 </div>
-                <span className="text-2xl font-bold text-red-600">{riskAreas}</span>
+                <span className="text-2xl font-bold text-red-600">{counts.high}</span>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Critical</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-red-900 rounded-full mr-3"></div>
+                  <span className="text-gray-700">Critical risk zones</span>
+                </div>
+                <span className="text-2xl font-bold text-red-900">{counts.critical}</span>
               </div>
             </CardContent>
           </Card>

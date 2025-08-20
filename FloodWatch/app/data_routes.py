@@ -71,6 +71,8 @@ def get_risk_zones():
         risk_level_filter = request.args.get('risk_level')
         alert_level_filter = request.args.get('alert_level')
         date_filter = request.args.get('date')
+        # Group by city by default; clients can opt out with group_by_city=false
+        group_by_city = request.args.get('group_by_city', 'true').lower() == 'true'
         
         filtered_zones = risk_zones
         
@@ -91,29 +93,93 @@ def get_risk_zones():
                 zone for zone in filtered_zones 
                 if zone['Date'] == date_filter
             ]
-        
-        # Generate summary
+        # Build DataFrame for sorting and potential grouping
         df = pd.DataFrame(filtered_zones)
         if len(df) > 0:
-            risk_level_counts = df['Risk_Level'].value_counts().to_dict()
-            alert_level_counts = df['Alert_Level'].value_counts().to_dict()
+            # Ensure Date is treated as datetime for correct ordering
+            if 'Date' in df.columns:
+                df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+            # Sort by City then Date (if present)
+            sort_cols = ['City'] + (['Date'] if 'Date' in df.columns else [])
+            df = df.sort_values(sort_cols).reset_index(drop=True)
+
+            # Prepare summary
+            risk_level_counts = df['Risk_Level'].value_counts().to_dict() if 'Risk_Level' in df.columns else {}
+            alert_level_counts = df['Alert_Level'].value_counts().to_dict() if 'Alert_Level' in df.columns else {}
+
+            if group_by_city:
+                # Group into one record per city with a days array
+                grouped_output = []
+                for city, g in df.groupby('City', sort=False):
+                    g_out = g.copy()
+                    if 'Date' in g_out.columns:
+                        g_out['Date'] = g_out['Date'].dt.strftime('%Y-%m-%d')
+                    days = g_out.to_dict('records')
+                    # Use first row for coordinates if present
+                    lat = float(g.iloc[0]['Latitude']) if 'Latitude' in g.columns else None
+                    lon = float(g.iloc[0]['Longitude']) if 'Longitude' in g.columns else None
+                    grouped_output.append({
+                        'City': city,
+                        'coordinates': {'lat': lat, 'lon': lon} if lat is not None and lon is not None else None,
+                        'days': days,
+                        'day_count': len(days)
+                    })
+
+                response_payload = {
+                    'risk_zones': grouped_output,
+                    'grouped': True,
+                    'city_count': len(grouped_output),
+                    'filters_applied': {
+                        'risk_level': risk_level_filter,
+                        'alert_level': alert_level_filter,
+                        'date': date_filter,
+                        'group_by_city': group_by_city
+                    },
+                    'summary': {
+                        'risk_level_distribution': risk_level_counts,
+                        'alert_level_distribution': alert_level_counts
+                    }
+                }
+            else:
+                # Flat list, but sorted and with formatted date
+                df_out = df.copy()
+                if 'Date' in df_out.columns:
+                    df_out['Date'] = df_out['Date'].dt.strftime('%Y-%m-%d')
+                flat_sorted = df_out.to_dict('records')
+
+                response_payload = {
+                    'risk_zones': flat_sorted,
+                    'count': len(flat_sorted),
+                    'grouped': False,
+                    'filters_applied': {
+                        'risk_level': risk_level_filter,
+                        'alert_level': alert_level_filter,
+                        'date': date_filter,
+                        'group_by_city': group_by_city
+                    },
+                    'summary': {
+                        'risk_level_distribution': risk_level_counts,
+                        'alert_level_distribution': alert_level_counts
+                    }
+                }
         else:
-            risk_level_counts = {}
-            alert_level_counts = {}
-        
-        return jsonify(to_serializable({
-            'risk_zones': filtered_zones,
-            'count': len(filtered_zones),
-            'filters_applied': {
-                'risk_level': risk_level_filter,
-                'alert_level': alert_level_filter,
-                'date': date_filter
-            },
-            'summary': {
-                'risk_level_distribution': risk_level_counts,
-                'alert_level_distribution': alert_level_counts
+            response_payload = {
+                'risk_zones': [],
+                'count': 0,
+                'grouped': group_by_city,
+                'filters_applied': {
+                    'risk_level': risk_level_filter,
+                    'alert_level': alert_level_filter,
+                    'date': date_filter,
+                    'group_by_city': group_by_city
+                },
+                'summary': {
+                    'risk_level_distribution': {},
+                    'alert_level_distribution': {}
+                }
             }
-        }))
+
+        return jsonify(to_serializable(response_payload))
         
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -135,6 +201,8 @@ def get_plotting_data():
         city_filter = request.args.get('city')
         date_filter = request.args.get('date')
         risk_threshold = request.args.get('min_probability', type=float)
+        # Group by city by default; clients can opt out with group_by_city=false
+        group_by_city = request.args.get('group_by_city', 'true').lower() == 'true'
         
         filtered_data = plotting_data
         
@@ -155,16 +223,72 @@ def get_plotting_data():
                 item for item in filtered_data 
                 if item['Flood_Probability'] >= risk_threshold
             ]
-        
-        return jsonify(to_serializable({
-            'plotting_data': filtered_data,
-            'count': len(filtered_data),
-            'filters_applied': {
-                'city': city_filter,
-                'date': date_filter,
-                'min_probability': risk_threshold
+        # Build DataFrame for sorting and potential grouping
+        df = pd.DataFrame(filtered_data)
+        if len(df) > 0:
+            if 'Date' in df.columns:
+                df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+            sort_cols = ['City'] + (['Date'] if 'Date' in df.columns else [])
+            df = df.sort_values(sort_cols).reset_index(drop=True)
+
+            if group_by_city:
+                grouped_output = []
+                for city, g in df.groupby('City', sort=False):
+                    g_out = g.copy()
+                    if 'Date' in g_out.columns:
+                        g_out['Date'] = g_out['Date'].dt.strftime('%Y-%m-%d')
+                    days = g_out.to_dict('records')
+                    lat = float(g.iloc[0]['Latitude']) if 'Latitude' in g.columns else None
+                    lon = float(g.iloc[0]['Longitude']) if 'Longitude' in g.columns else None
+                    grouped_output.append({
+                        'City': city,
+                        'coordinates': {'lat': lat, 'lon': lon} if lat is not None and lon is not None else None,
+                        'days': days,
+                        'day_count': len(days)
+                    })
+
+                response_payload = {
+                    'plotting_data': grouped_output,
+                    'grouped': True,
+                    'city_count': len(grouped_output),
+                    'filters_applied': {
+                        'city': city_filter,
+                        'date': date_filter,
+                        'min_probability': risk_threshold,
+                        'group_by_city': group_by_city
+                    }
+                }
+            else:
+                df_out = df.copy()
+                if 'Date' in df_out.columns:
+                    df_out['Date'] = df_out['Date'].dt.strftime('%Y-%m-%d')
+                flat_sorted = df_out.to_dict('records')
+
+                response_payload = {
+                    'plotting_data': flat_sorted,
+                    'count': len(flat_sorted),
+                    'grouped': False,
+                    'filters_applied': {
+                        'city': city_filter,
+                        'date': date_filter,
+                        'min_probability': risk_threshold,
+                        'group_by_city': group_by_city
+                    }
+                }
+        else:
+            response_payload = {
+                'plotting_data': [],
+                'count': 0,
+                'grouped': group_by_city,
+                'filters_applied': {
+                    'city': city_filter,
+                    'date': date_filter,
+                    'min_probability': risk_threshold,
+                    'group_by_city': group_by_city
+                }
             }
-        }))
+
+        return jsonify(to_serializable(response_payload))
         
     except Exception as e:
         return jsonify({'error': str(e)}), 500

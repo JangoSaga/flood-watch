@@ -21,7 +21,8 @@ class DataLoader:
             'final_plot.csv': 'Main plotting data',
             'risk_zones.csv': 'Risk zones with alert levels',
             'daily_summary.csv': 'Daily forecast statistics',
-            'city_summary.csv': 'City-wise risk analysis'
+            'city_summary.csv': 'City-wise risk analysis',
+            'cities.csv': 'City coordinates reference'
         }
         
         status = {}
@@ -52,8 +53,9 @@ class DataLoader:
                 return None
             
             df = pd.read_csv(file_path)
-            # Reset index to get Date as a column
-            df = df.reset_index()
+            # Reset index to get Date as a column if it's in the index
+            if 'Date' not in df.columns and df.index.name == 'Date':
+                df = df.reset_index()
             return df.to_dict('records')
         except Exception as e:
             print(f"Error loading daily summary: {e}")
@@ -67,8 +69,21 @@ class DataLoader:
                 return None
             
             df = pd.read_csv(file_path)
-            # Reset index to get City as a column
-            df = df.reset_index()
+            # Reset index to get City as a column if it's in the index
+            if 'City' not in df.columns and df.index.name == 'City':
+                df = df.reset_index()
+            
+            # Handle the Risk_Category column properly
+            if 'Overall_Risk_Category' in df.columns:
+                df['Risk_Category'] = df['Overall_Risk_Category']
+            elif 'Risk_Category' not in df.columns:
+                # Create Risk_Category based on Avg_Flood_Probability if it doesn't exist
+                df['Risk_Category'] = df['Avg_Flood_Probability'].apply(
+                    lambda x: 'Critical' if x >= 0.8 else 
+                             'High' if x >= 0.6 else 
+                             'Medium' if x >= 0.4 else 'Low'
+                )
+            
             return df.to_dict('records')
         except Exception as e:
             print(f"Error loading city summary: {e}")
@@ -112,12 +127,12 @@ class DataLoader:
         
         # Fallback to cities.csv
         try:
-            cities_path = os.path.join(self.data_dir, 'data', 'cities.csv')
+            cities_path = os.path.join(self.data_dir, 'cities.csv')
             with open(cities_path, 'r', encoding='UTF-8') as f:
-                reader = csv.reader(f)
+                reader = csv.DictReader(f)
                 for row in reader:
-                    if len(row) >= 1:
-                        cities.add(row[0])
+                    if 'city' in row:
+                        cities.add(row['city'])
         except FileNotFoundError:
             pass
         
@@ -127,13 +142,13 @@ class DataLoader:
         """Get coordinates for a specific city"""
         # Try from cities.csv first
         try:
-            cities_path = os.path.join(self.data_dir, 'data', 'cities.csv')
+            cities_path = os.path.join(self.data_dir, 'cities.csv')
             with open(cities_path, 'r', encoding='UTF-8') as f:
-                reader = csv.reader(f)
+                reader = csv.DictReader(f)
                 for row in reader:
-                    if len(row) >= 3 and row[0].lower() == city_name.lower():
-                        return float(row[1]), float(row[2])
-        except FileNotFoundError:
+                    if row.get('city', '').lower() == city_name.lower():
+                        return float(row['latitude']), float(row['longitude'])
+        except (FileNotFoundError, KeyError, ValueError):
             pass
         
         # Try from 7-day predictions
@@ -204,6 +219,11 @@ class DataLoader:
         unique_dates = df['Date'].nunique()
         avg_probability = df['Flood_Probability'].mean()
         
+        # Risk category distribution if available
+        risk_categories = {}
+        if 'Risk_Category' in df.columns:
+            risk_categories = df['Risk_Category'].value_counts().to_dict()
+        
         return {
             'total_predictions': total_predictions,
             'high_risk_predictions': high_risk_predictions,
@@ -211,6 +231,7 @@ class DataLoader:
             'unique_cities': unique_cities,
             'forecast_days': unique_dates,
             'average_flood_probability': round(avg_probability, 3),
+            'risk_category_distribution': risk_categories,
             'generated_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }
 

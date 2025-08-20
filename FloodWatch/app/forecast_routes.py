@@ -32,15 +32,72 @@ def get_7day_forecast():
                 p for p in predictions 
                 if p['Date'] == date_filter
             ]
-        
-        return jsonify(to_serializable({
-            'predictions': predictions,
-            'count': len(predictions),
-            'filters_applied': {
-                'city': city_filter,
-                'date': date_filter
+        # Group by city by default; clients can opt out with group_by_city=false
+        group_by_city = request.args.get('group_by_city', 'true').lower() == 'true'
+
+        # Build DataFrame for sorting and potential grouping
+        df = pd.DataFrame(predictions)
+        if len(df) > 0:
+            if 'Date' in df.columns:
+                df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+            sort_cols = ['City'] + (['Date'] if 'Date' in df.columns else [])
+            df = df.sort_values(sort_cols).reset_index(drop=True)
+
+            if group_by_city:
+                grouped_output = []
+                for city, g in df.groupby('City', sort=False):
+                    g_out = g.copy()
+                    if 'Date' in g_out.columns:
+                        g_out['Date'] = g_out['Date'].dt.strftime('%Y-%m-%d')
+                    days = g_out.to_dict('records')
+                    lat = float(g.iloc[0]['Latitude']) if 'Latitude' in g.columns else None
+                    lon = float(g.iloc[0]['Longitude']) if 'Longitude' in g.columns else None
+                    grouped_output.append({
+                        'City': city,
+                        'coordinates': {'lat': lat, 'lon': lon} if lat is not None and lon is not None else None,
+                        'days': days,
+                        'day_count': len(days)
+                    })
+
+                response_payload = {
+                    'predictions': grouped_output,
+                    'grouped': True,
+                    'city_count': len(grouped_output),
+                    'filters_applied': {
+                        'city': city_filter,
+                        'date': date_filter,
+                        'group_by_city': group_by_city
+                    }
+                }
+            else:
+                df_out = df.copy()
+                if 'Date' in df_out.columns:
+                    df_out['Date'] = df_out['Date'].dt.strftime('%Y-%m-%d')
+                flat_sorted = df_out.to_dict('records')
+
+                response_payload = {
+                    'predictions': flat_sorted,
+                    'count': len(flat_sorted),
+                    'grouped': False,
+                    'filters_applied': {
+                        'city': city_filter,
+                        'date': date_filter,
+                        'group_by_city': group_by_city
+                    }
+                }
+        else:
+            response_payload = {
+                'predictions': [],
+                'count': 0,
+                'grouped': group_by_city,
+                'filters_applied': {
+                    'city': city_filter,
+                    'date': date_filter,
+                    'group_by_city': group_by_city
+                }
             }
-        }))
+
+        return jsonify(to_serializable(response_payload))
         
     except Exception as e:
         return jsonify({'error': str(e)}), 500

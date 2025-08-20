@@ -22,7 +22,6 @@ def create_app():
     # Register blueprints
     app.register_blueprint(forecast_bp, url_prefix='/api/forecast')
     app.register_blueprint(data_bp, url_prefix='/api/data')
-    app.register_blueprint(analysis_bp, url_prefix='/api/analysis')
     
     @app.route('/')
     def index():
@@ -42,11 +41,6 @@ def create_app():
                     '/api/data/risk-zones',
                     '/api/data/plotting'
                 ],
-                'analysis': [
-                    '/api/analysis/overview',
-                    '/api/analysis/risk-distribution',
-                    '/api/analysis/trends'
-                ]
             },
             'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }

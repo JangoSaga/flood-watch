@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 import requests
 import pickle
+
 def get_daily_weather_forecasts(lat, lon, city_name):
     """
     Get 7-day daily weather forecasts (not averaged)
@@ -66,8 +67,7 @@ def get_daily_weather_forecasts(lat, lon, city_name):
 
 def forecast_reservoir_levels(city, aggregated_reservoir_path, days=7):
     """
-    Forecast reservoir levels for next 7 days using precomputed CSV if available,
-    otherwise a simple heuristic based on recent trend.
+    Forecast reservoir levels for next 7 days using deterministic trend analysis
     """
     try:
         # First, try to read precomputed forecasts from CSV in the same directory
@@ -97,7 +97,7 @@ def forecast_reservoir_levels(city, aggregated_reservoir_path, days=7):
         
         # Get city data
         city_data = reservoir_df[reservoir_df['City'] == city].sort_values('Date')
-        if len(city_data) < 14:  # Need minimum data for LSTM
+        if len(city_data) < 14:  # Need minimum data for trend analysis
             print(f"Insufficient reservoir data for {city}, using last known values")
             if not city_data.empty:
                 last_row = city_data.iloc[-1]
@@ -110,24 +110,34 @@ def forecast_reservoir_levels(city, aggregated_reservoir_path, days=7):
             else:
                 return [{'avg_fill': 0, 'max_fill': 0, 'risk_score': 0, 'above_danger': 0}] * 7
         
-        # Prepare data for LSTM (simplified approach)
+        # Prepare data for deterministic forecasting
         fill_levels = city_data['Avg_Reservoir_Fill'].values[-30:]  # Use last 30 days
         
-        # Simple trend-based prediction (since training LSTM needs more data)
-        recent_trend = fill_levels[-7:].mean() - fill_levels[-14:-7].mean()
+        # Calculate trend using rolling averages (more stable than random)
+        recent_trend = np.mean(fill_levels[-7:]) - np.mean(fill_levels[-14:-7])
         last_level = fill_levels[-1]
+        
+        # Calculate seasonal adjustment based on historical patterns
+        month = datetime.now().month
+        seasonal_adjustment = 0
+        if 6 <= month <= 9:  # Monsoon season
+            seasonal_adjustment = 2  # Slight increase expected
+        elif 3 <= month <= 5:  # Pre-monsoon
+            seasonal_adjustment = -1  # Slight decrease expected
         
         predictions = []
         for day in range(7):
-            # Simple linear trend with some random variation
-            predicted_level = max(0, min(100, last_level + (recent_trend * (day + 1)) + np.random.normal(0, 2)))
+            # Deterministic prediction with trend and seasonal component
+            predicted_level = last_level + (recent_trend * (day + 1)) + (seasonal_adjustment * (day + 1) * 0.1)
+            predicted_level = max(0, min(100, predicted_level))  # Clamp to valid range
             
             # Calculate derived metrics
             risk_score = 0
-            if predicted_level > 90: risk_score = 5
-            elif predicted_level > 80: risk_score = 3  
-            elif predicted_level > 70: risk_score = 2
-            elif predicted_level > 60: risk_score = 1
+            if predicted_level > 95: risk_score = 5
+            elif predicted_level > 85: risk_score = 4
+            elif predicted_level > 75: risk_score = 3
+            elif predicted_level > 65: risk_score = 2
+            elif predicted_level > 55: risk_score = 1
             
             predictions.append({
                 'avg_fill': predicted_level,
@@ -142,9 +152,47 @@ def forecast_reservoir_levels(city, aggregated_reservoir_path, days=7):
         print(f"Error forecasting reservoir levels for {city}: {e}")
         return [{'avg_fill': 0, 'max_fill': 0, 'risk_score': 0, 'above_danger': 0}] * 7
 
+def determine_forecast_confidence(day):
+    """
+    Determine confidence level based on forecast horizon
+    """
+    if day <= 3:
+        return "High"
+    else:
+        return "Low"
+
+def categorize_flood_risk(probability, weather_precip=0, reservoir_risk=0):
+    """
+    Categorize flood probability into risk levels with rainfall & reservoir overrides
+    """
+    # Base categorization (even softer)
+    if probability >= 0.5:
+        category = "Critical"
+    elif probability >= 0.35:
+        category = "High"
+    elif probability >= 0.2:
+        category = "Medium"
+    else:
+        category = "Low"
+
+    # Rainfall override
+    if weather_precip > 100:
+        category = "Critical"
+    elif weather_precip > 80:
+        category = "High"
+    elif weather_precip > 50 and category == "Low":
+        category = "Medium"
+
+    # Reservoir override
+    if reservoir_risk >= 4 and category != "Critical":
+        category = "High"
+
+    return category
+
+
 def make_daily_flood_predictions(daily_weather_forecasts, daily_reservoir_forecasts, model):
     """
-    Make flood predictions for each of the next 7 days with probability scores
+    Make flood predictions for each of the next 7 days with probability scores and risk categories
     """
     daily_predictions = []
     
@@ -186,12 +234,41 @@ def make_daily_flood_predictions(daily_weather_forecasts, daily_reservoir_foreca
                 # If model doesn't support predict_proba, use decision function or default
                 flood_probability = 0.8 if prediction == 1 else 0.2
             
+            risk_category = categorize_flood_risk(
+                flood_probability,
+                weather_features[4],                # precipitation
+                daily_reservoir_forecasts[day]['risk_score']  # reservoir
+            )   
+            if flood_probability > 0.7 or flood_probability < 0.3:
+                confidence = "High"
+            else:
+                confidence = "Medium" if day <= 3 else "Low"    
+            # Explainability: why this risk category was assigned
+            reason = []
+            if weather_features[4] > 80:   # precipitation
+                reason.append(f"Heavy rainfall {weather_features[4]:.1f}mm")
+            elif weather_features[4] > 40:
+                reason.append(f"Moderate rainfall {weather_features[4]:.1f}mm")
+
+            if reservoir_features[1] > 90:  # max reservoir fill
+                reason.append(f"Reservoir critical {reservoir_features[1]:.1f}%")
+            elif reservoir_features[1] > 75:
+                reason.append(f"Reservoir high {reservoir_features[1]:.1f}%")
+
+            if not reason:
+                reason = ["Normal conditions"]
+
+            explanation = "; ".join(reason)
+    
             daily_predictions.append({
                 'date': daily_weather_forecasts[day]['date'],
                 'flood_prediction': int(prediction),
                 'flood_probability': float(flood_probability),
+                'risk_category': risk_category,
+                'confidence': confidence,
                 'weather_precip': weather_features[4],
-                'max_reservoir_fill': reservoir_features[1]
+                'max_reservoir_fill': reservoir_features[1],
+                'explanation': explanation
             })
             
         except Exception as e:
@@ -200,15 +277,18 @@ def make_daily_flood_predictions(daily_weather_forecasts, daily_reservoir_foreca
                 'date': f"Day_{day+1}",
                 'flood_prediction': 0,
                 'flood_probability': 0.0,
+                'risk_category': 'Low',
+                'confidence': 'Low',
                 'weather_precip': 0,
-                'max_reservoir_fill': 0
+                'max_reservoir_fill': 0,
+                'explanation': ""
             })
     
     return daily_predictions
 
 def generate_7day_predictions_for_cities(cities_path, reservoir_data_path, model_path):
     """
-    Generate 7-day flood predictions for all cities
+    Generate 7-day flood predictions for all cities with risk categories and confidence levels
     """
     # Load model
     try:
@@ -262,9 +342,12 @@ def generate_7day_predictions_for_cities(cities_path, reservoir_data_path, model
                 'Date': day_pred['date'],
                 'Predicted_Flood_Risk': day_pred['flood_prediction'],
                 'Flood_Probability': day_pred['flood_probability'],
+                'Risk_Category': day_pred['risk_category'],
+                'Confidence': day_pred['confidence'],
                 'Weather_Precip': day_pred['weather_precip'],
                 'Max_Reservoir_Fill': day_pred['max_reservoir_fill'],
-                'Prediction_Generated': datetime.now().strftime('%Y-%m-%d %H:%M')
+                'Prediction_Generated': datetime.now().strftime('%Y-%m-%d %H:%M'),
+                'explanation': day_pred['explanation'] 
             }
             
             all_predictions.append(prediction_record)
@@ -272,13 +355,17 @@ def generate_7day_predictions_for_cities(cities_path, reservoir_data_path, model
         # Print summary for this city
         high_risk_days = sum(1 for p in daily_predictions if p['flood_prediction'] == 1)
         avg_probability = np.mean([p['flood_probability'] for p in daily_predictions])
-        print(f"{city_name}: {high_risk_days}/7 high-risk days, avg probability: {avg_probability:.2f}")
+        critical_days = sum(1 for p in daily_predictions if p['risk_category'] == 'Critical')
+        high_confidence_days = sum(1 for p in daily_predictions if p['confidence'] == 'High')
+        
+        print(f"{city_name}: {high_risk_days}/7 high-risk days, {critical_days}/7 critical days")
+        print(f"  Avg probability: {avg_probability:.2f}, High confidence: {high_confidence_days}/7 days")
     
     return all_predictions
 
 def save_7day_predictions(predictions, output_path):
     """
-    Save 7-day predictions to CSV file
+    Save 7-day predictions to CSV file with enhanced metrics
     """
     if not predictions:
         print("No predictions to save")
@@ -288,31 +375,53 @@ def save_7day_predictions(predictions, output_path):
     df.to_csv(output_path, index=False)
     print(f"Saved {len(predictions)} daily predictions to {output_path}")
     
-    # Print summary
+    # Print comprehensive summary
     total_city_days = len(df)
     high_risk_predictions = len(df[df['Predicted_Flood_Risk'] == 1])
     unique_cities = df['City'].nunique()
+    
+    # Risk category breakdown
+    critical_predictions = len(df[df['Risk_Category'] == 'Critical'])
+    high_predictions = len(df[df['Risk_Category'] == 'High'])
+    medium_predictions = len(df[df['Risk_Category'] == 'Medium'])
+    low_predictions = len(df[df['Risk_Category'] == 'Low'])
+    
+    # Confidence breakdown
+    high_confidence = len(df[df['Confidence'] == 'High'])
+    low_confidence = len(df[df['Confidence'] == 'Low'])
     
     print(f"\n7-DAY FORECAST SUMMARY:")
     print(f"Cities analyzed: {unique_cities}")
     print(f"Total city-day predictions: {total_city_days}")
     print(f"High-risk predictions: {high_risk_predictions} ({high_risk_predictions/total_city_days*100:.1f}%)")
     
+    print(f"\nRisk Category Distribution:")
+    print(f"Critical: {critical_predictions} ({critical_predictions/total_city_days*100:.1f}%)")
+    print(f"High:     {high_predictions} ({high_predictions/total_city_days*100:.1f}%)")
+    print(f"Medium:   {medium_predictions} ({medium_predictions/total_city_days*100:.1f}%)")
+    print(f"Low:      {low_predictions} ({low_predictions/total_city_days*100:.1f}%)")
+    
+    print(f"\nForecast Confidence:")
+    print(f"High confidence (Days 1-3): {high_confidence} ({high_confidence/total_city_days*100:.1f}%)")
+    print(f"Low confidence (Days 4-7):  {low_confidence} ({low_confidence/total_city_days*100:.1f}%)")
+    
     # Show cities with highest average flood probability
     city_avg_prob = df.groupby('City')['Flood_Probability'].mean().sort_values(ascending=False)
-    print(f"\nTop 5 cities by average flood probability:")
-    for city, prob in city_avg_prob.head().items():
-        high_risk_days = len(df[(df['City'] == city) & (df['Predicted_Flood_Risk'] == 1)])
-        print(f"- {city}: {prob:.3f} ({high_risk_days}/7 high-risk days)")
+    city_risk_breakdown = df.groupby(['City', 'Risk_Category']).size().unstack(fill_value=0)
+    # Print examples of High/Medium predictions with reasons
+    sample_explanations = df[df['Risk_Category'].isin(['High','Medium'])].head(5)
+    print("\nSample explanations for High/Medium risk days:")
+    for _, row in sample_explanations.iterrows():
+        print(f"- {row['City']} on {row['Date']}: {row['Risk_Category']} ({row['explanation']})")
 
 if __name__ == "__main__":
     script_dir = os.path.dirname(__file__)
-    
+    project_root = os.path.dirname(script_dir)
     # File paths
-    cities_path = os.path.join(script_dir, 'data', 'cities.csv')
-    reservoir_path = os.path.join(script_dir, 'data', 'aggregated_reservoir_data.csv')
-    model_path = os.path.join(script_dir, 'model.pickle')
-    output_path = os.path.join(script_dir, 'data', '7day_flood_predictions.csv')
+    cities_path = os.path.join(project_root, 'data', 'cities.csv')
+    reservoir_path = os.path.join(project_root, 'data', 'aggregated_reservoir_data.csv')
+    model_path = os.path.join(project_root, 'model.pickle')
+    output_path = os.path.join(project_root, 'data', '7day_flood_predictions.csv')
     
     # Generate 7-day predictions
     predictions = generate_7day_predictions_for_cities(cities_path, reservoir_path, model_path)

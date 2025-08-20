@@ -1,393 +1,393 @@
-City,Latitude,Longitude,Date,Risk_Level,Alert_Level,Primary_Risk_Factor,Precipitation_mm,Max_Reservoir_Fill_Percent,Flood_Probability,Binary_Risk
-Pune,18.5204,73.8567,2025-08-19,Low,GREEN,Normal Conditions,17.8,8.0,0.04,0
-Pune,18.5204,73.8567,2025-08-20,Low,GREEN,Normal Conditions,15.2,5.0,0.04,0
-Pune,18.5204,73.8567,2025-08-21,Low,GREEN,Normal Conditions,0.3,9.8,0.053,0
-Pune,18.5204,73.8567,2025-08-22,Low,GREEN,Normal Conditions,0.0,10.7,0.033,0
-Pune,18.5204,73.8567,2025-08-23,Low,GREEN,Normal Conditions,0.0,9.2,0.047,0
-Pune,18.5204,73.8567,2025-08-24,Low,GREEN,Normal Conditions,0.0,16.6,0.04,0
-Pune,18.5204,73.8567,2025-08-25,Low,GREEN,Normal Conditions,6.3,13.3,0.047,0
-Kolhapur,16.705,74.2433,2025-08-19,Low,GREEN,Moderate Rainfall,38.9,10.1,0.02,0
-Kolhapur,16.705,74.2433,2025-08-20,Low,GREEN,Normal Conditions,7.5,10.3,0.033,0
-Kolhapur,16.705,74.2433,2025-08-21,Low,GREEN,Normal Conditions,0.0,13.1,0.033,0
-Kolhapur,16.705,74.2433,2025-08-22,Low,GREEN,Normal Conditions,0.0,17.9,0.06,0
-Kolhapur,16.705,74.2433,2025-08-23,Low,GREEN,Normal Conditions,0.0,20.2,0.053,0
-Kolhapur,16.705,74.2433,2025-08-24,Low,GREEN,Normal Conditions,0.0,20.0,0.047,0
-Kolhapur,16.705,74.2433,2025-08-25,Low,GREEN,Normal Conditions,0.6,20.9,0.033,0
-Nashik,19.9975,73.7898,2025-08-19,Low,GREEN,Normal Conditions,12.1,15.6,0.04,0
-Nashik,19.9975,73.7898,2025-08-20,Low,GREEN,Normal Conditions,3.0,24.7,0.04,0
-Nashik,19.9975,73.7898,2025-08-21,Low,GREEN,Normal Conditions,2.8,37.4,0.053,0
-Nashik,19.9975,73.7898,2025-08-22,Low,GREEN,Normal Conditions,0.0,42.5,0.047,0
-Nashik,19.9975,73.7898,2025-08-23,Low,GREEN,Normal Conditions,2.1,54.8,0.053,0
-Nashik,19.9975,73.7898,2025-08-24,Low,GREEN,Elevated Reservoir Levels,2.4,67.6,0.107,0
-Nashik,19.9975,73.7898,2025-08-25,Low,GREEN,Elevated Reservoir Levels,7.2,74.1,0.06,0
-Thane,19.2183,72.9781,2025-08-19,Low,GREEN,Heavy Rainfall,54.6,7.4,0.053,0
-Thane,19.2183,72.9781,2025-08-20,Low,GREEN,Heavy Rainfall,70.9,18.6,0.04,0
-Thane,19.2183,72.9781,2025-08-21,Low,GREEN,Normal Conditions,11.9,22.6,0.04,0
-Thane,19.2183,72.9781,2025-08-22,Low,GREEN,Normal Conditions,7.4,28.6,0.04,0
-Thane,19.2183,72.9781,2025-08-23,Low,GREEN,Normal Conditions,9.6,36.5,0.04,0
-Thane,19.2183,72.9781,2025-08-24,Low,GREEN,Normal Conditions,15.9,41.6,0.04,0
-Thane,19.2183,72.9781,2025-08-25,Low,GREEN,Normal Conditions,18.3,51.6,0.087,0
-Solapur,17.6599,75.9064,2025-08-19,Low,GREEN,Normal Conditions,19.1,5.9,0.027,0
-Solapur,17.6599,75.9064,2025-08-20,Low,GREEN,Normal Conditions,0.2,7.6,0.053,0
-Solapur,17.6599,75.9064,2025-08-21,Low,GREEN,Normal Conditions,0.2,12.6,0.0,0
-Solapur,17.6599,75.9064,2025-08-22,Low,GREEN,Normal Conditions,0.0,16.9,0.02,0
-Solapur,17.6599,75.9064,2025-08-23,Low,GREEN,Normal Conditions,0.9,17.5,0.027,0
-Solapur,17.6599,75.9064,2025-08-24,Low,GREEN,Normal Conditions,0.0,21.1,0.033,0
-Solapur,17.6599,75.9064,2025-08-25,Low,GREEN,Normal Conditions,1.2,23.7,0.027,0
-Satara,17.6805,74.0183,2025-08-19,Low,GREEN,Moderate Rainfall,46.6,11.2,0.02,0
-Satara,17.6805,74.0183,2025-08-20,Low,GREEN,Moderate Rainfall,34.3,17.4,0.02,0
-Satara,17.6805,74.0183,2025-08-21,Low,GREEN,Normal Conditions,0.8,29.4,0.033,0
-Satara,17.6805,74.0183,2025-08-22,Low,GREEN,Normal Conditions,0.1,36.4,0.027,0
-Satara,17.6805,74.0183,2025-08-23,Low,GREEN,Normal Conditions,0.0,42.3,0.033,0
-Satara,17.6805,74.0183,2025-08-24,Low,GREEN,Normal Conditions,0.3,49.3,0.033,0
-Satara,17.6805,74.0183,2025-08-25,Low,GREEN,Normal Conditions,0.9,54.9,0.033,0
-Sindhudurg,16.0667,73.5,2025-08-19,Low,GREEN,Heavy Rainfall,75.4,5.0,0.067,0
-Sindhudurg,16.0667,73.5,2025-08-20,Low,GREEN,Moderate Rainfall,36.2,6.6,0.067,0
-Sindhudurg,16.0667,73.5,2025-08-21,Low,GREEN,Normal Conditions,11.3,6.0,0.04,0
-Sindhudurg,16.0667,73.5,2025-08-22,Low,GREEN,Normal Conditions,5.6,6.9,0.073,0
-Sindhudurg,16.0667,73.5,2025-08-23,Low,GREEN,Normal Conditions,3.0,5.0,0.047,0
-Sindhudurg,16.0667,73.5,2025-08-24,Low,GREEN,Normal Conditions,2.1,7.4,0.033,0
-Sindhudurg,16.0667,73.5,2025-08-25,Low,GREEN,Normal Conditions,7.5,6.5,0.067,0
-Palghar,19.6967,72.7661,2025-08-19,Low,GREEN,Heavy Rainfall,76.2,5.6,0.067,0
-Palghar,19.6967,72.7661,2025-08-20,Low,GREEN,Moderate Rainfall,47.3,5.0,0.053,0
-Palghar,19.6967,72.7661,2025-08-21,Low,GREEN,Moderate Rainfall,25.9,5.0,0.06,0
-Palghar,19.6967,72.7661,2025-08-22,Low,GREEN,Normal Conditions,12.1,5.0,0.053,0
-Palghar,19.6967,72.7661,2025-08-23,Low,GREEN,Normal Conditions,18.9,5.0,0.053,0
-Palghar,19.6967,72.7661,2025-08-24,Low,GREEN,Moderate Rainfall,34.2,5.0,0.053,0
-Palghar,19.6967,72.7661,2025-08-25,Low,GREEN,Moderate Rainfall,42.9,5.0,0.08,0
-Ahmednagar,19.0948,74.748,2025-08-19,Low,GREEN,Normal Conditions,5.7,34.4,0.04,0
-Ahmednagar,19.0948,74.748,2025-08-20,Low,GREEN,Normal Conditions,3.6,31.4,0.047,0
-Ahmednagar,19.0948,74.748,2025-08-21,Low,GREEN,Normal Conditions,0.0,25.8,0.04,0
-Ahmednagar,19.0948,74.748,2025-08-22,Low,GREEN,Normal Conditions,0.0,26.8,0.033,0
-Ahmednagar,19.0948,74.748,2025-08-23,Low,GREEN,Normal Conditions,0.0,22.9,0.04,0
-Ahmednagar,19.0948,74.748,2025-08-24,Low,GREEN,Normal Conditions,0.0,23.2,0.033,0
-Ahmednagar,19.0948,74.748,2025-08-25,Low,GREEN,Normal Conditions,0.0,18.4,0.04,0
-Jalgaon,21.0077,75.5626,2025-08-19,Low,GREEN,Moderate Rainfall,22.8,17.2,0.047,0
-Jalgaon,21.0077,75.5626,2025-08-20,Low,GREEN,Normal Conditions,1.3,34.0,0.073,0
-Jalgaon,21.0077,75.5626,2025-08-21,Low,GREEN,Normal Conditions,0.5,50.2,0.033,0
-Jalgaon,21.0077,75.5626,2025-08-22,Low,GREEN,Elevated Reservoir Levels,0.5,64.2,0.04,0
-Jalgaon,21.0077,75.5626,2025-08-23,Low,GREEN,Elevated Reservoir Levels,3.0,79.0,0.2,0
-Jalgaon,21.0077,75.5626,2025-08-24,Critical,RED,High Reservoir Levels,0.6,92.4,0.86,1
-Jalgaon,21.0077,75.5626,2025-08-25,Critical,RED,High Reservoir Levels,36.3,100.0,0.947,1
-Bhiwandi,19.3002,73.0502,2025-08-19,Low,GREEN,Heavy Rainfall,54.6,9.1,0.053,0
-Bhiwandi,19.3002,73.0502,2025-08-20,Low,GREEN,Heavy Rainfall,70.9,19.8,0.04,0
-Bhiwandi,19.3002,73.0502,2025-08-21,Low,GREEN,Normal Conditions,11.9,23.9,0.04,0
-Bhiwandi,19.3002,73.0502,2025-08-22,Low,GREEN,Normal Conditions,7.4,28.8,0.04,0
-Bhiwandi,19.3002,73.0502,2025-08-23,Low,GREEN,Normal Conditions,9.6,38.1,0.04,0
-Bhiwandi,19.3002,73.0502,2025-08-24,Low,GREEN,Normal Conditions,15.9,41.3,0.04,0
-Bhiwandi,19.3002,73.0502,2025-08-25,Low,GREEN,Normal Conditions,18.3,48.2,0.087,0
-Kalyan,19.2437,73.1355,2025-08-19,Low,GREEN,Moderate Rainfall,40.7,14.1,0.053,0
-Kalyan,19.2437,73.1355,2025-08-20,Low,GREEN,Moderate Rainfall,42.9,18.4,0.04,0
-Kalyan,19.2437,73.1355,2025-08-21,Low,GREEN,Normal Conditions,10.9,27.5,0.06,0
-Kalyan,19.2437,73.1355,2025-08-22,Low,GREEN,Normal Conditions,3.9,29.7,0.04,0
-Kalyan,19.2437,73.1355,2025-08-23,Low,GREEN,Normal Conditions,6.6,35.5,0.047,0
-Kalyan,19.2437,73.1355,2025-08-24,Low,GREEN,Normal Conditions,12.0,42.3,0.04,0
-Kalyan,19.2437,73.1355,2025-08-25,Low,GREEN,Normal Conditions,18.3,48.8,0.073,0
-Dombivli,19.2183,73.0868,2025-08-19,Low,GREEN,Moderate Rainfall,40.7,13.0,0.053,0
-Dombivli,19.2183,73.0868,2025-08-20,Low,GREEN,Moderate Rainfall,42.9,18.8,0.04,0
-Dombivli,19.2183,73.0868,2025-08-21,Low,GREEN,Normal Conditions,10.9,20.4,0.06,0
-Dombivli,19.2183,73.0868,2025-08-22,Low,GREEN,Normal Conditions,3.9,32.8,0.04,0
-Dombivli,19.2183,73.0868,2025-08-23,Low,GREEN,Normal Conditions,6.6,37.0,0.047,0
-Dombivli,19.2183,73.0868,2025-08-24,Low,GREEN,Normal Conditions,12.0,43.6,0.04,0
-Dombivli,19.2183,73.0868,2025-08-25,Low,GREEN,Normal Conditions,18.3,49.6,0.073,0
-Vasai,19.4667,72.8167,2025-08-19,Low,GREEN,Heavy Rainfall,74.1,8.3,0.08,0
-Vasai,19.4667,72.8167,2025-08-20,Low,GREEN,Heavy Rainfall,85.1,5.0,0.08,0
-Vasai,19.4667,72.8167,2025-08-21,Low,GREEN,Moderate Rainfall,22.4,5.0,0.033,0
-Vasai,19.4667,72.8167,2025-08-22,Low,GREEN,Normal Conditions,10.4,5.0,0.04,0
-Vasai,19.4667,72.8167,2025-08-23,Low,GREEN,Normal Conditions,12.6,5.0,0.033,0
-Vasai,19.4667,72.8167,2025-08-24,Low,GREEN,Moderate Rainfall,27.6,5.0,0.053,0
-Vasai,19.4667,72.8167,2025-08-25,Low,GREEN,Moderate Rainfall,39.6,5.0,0.067,0
-Virar,19.4559,72.8111,2025-08-19,Low,GREEN,Heavy Rainfall,70.5,5.0,0.08,0
-Virar,19.4559,72.8111,2025-08-20,Low,GREEN,Heavy Rainfall,66.3,5.0,0.08,0
-Virar,19.4559,72.8111,2025-08-21,Low,GREEN,Moderate Rainfall,23.8,5.0,0.053,0
-Virar,19.4559,72.8111,2025-08-22,Low,GREEN,Normal Conditions,10.3,5.0,0.067,0
-Virar,19.4559,72.8111,2025-08-23,Low,GREEN,Normal Conditions,12.9,5.0,0.033,0
-Virar,19.4559,72.8111,2025-08-24,Low,GREEN,Moderate Rainfall,27.6,5.0,0.053,0
-Virar,19.4559,72.8111,2025-08-25,Low,GREEN,Moderate Rainfall,41.1,5.0,0.067,0
-Ulhasnagar,19.2215,73.1645,2025-08-19,Low,GREEN,Moderate Rainfall,40.7,0.0,0.053,0
-Ulhasnagar,19.2215,73.1645,2025-08-20,Low,GREEN,Moderate Rainfall,42.9,0.0,0.04,0
-Ulhasnagar,19.2215,73.1645,2025-08-21,Low,GREEN,Normal Conditions,10.9,0.0,0.06,0
-Ulhasnagar,19.2215,73.1645,2025-08-22,Low,GREEN,Normal Conditions,3.9,0.0,0.04,0
-Ulhasnagar,19.2215,73.1645,2025-08-23,Low,GREEN,Normal Conditions,6.6,0.0,0.047,0
-Ulhasnagar,19.2215,73.1645,2025-08-24,Low,GREEN,Normal Conditions,12.0,0.0,0.04,0
-Ulhasnagar,19.2215,73.1645,2025-08-25,Low,GREEN,Normal Conditions,18.3,0.0,0.073,0
-Sangamner,19.5667,74.2167,2025-08-19,Low,GREEN,Normal Conditions,4.3,25.9,0.06,0
-Sangamner,19.5667,74.2167,2025-08-20,Low,GREEN,Normal Conditions,6.1,24.5,0.053,0
-Sangamner,19.5667,74.2167,2025-08-21,Low,GREEN,Normal Conditions,0.0,22.4,0.047,0
-Sangamner,19.5667,74.2167,2025-08-22,Low,GREEN,Normal Conditions,0.2,15.1,0.047,0
-Sangamner,19.5667,74.2167,2025-08-23,Low,GREEN,Normal Conditions,0.3,13.8,0.047,0
-Sangamner,19.5667,74.2167,2025-08-24,Low,GREEN,Normal Conditions,3.6,8.7,0.033,0
-Sangamner,19.5667,74.2167,2025-08-25,Low,GREEN,Normal Conditions,5.4,5.0,0.06,0
-Baramati,18.1518,74.5815,2025-08-19,Low,GREEN,Normal Conditions,7.6,7.0,0.04,0
-Baramati,18.1518,74.5815,2025-08-20,Low,GREEN,Normal Conditions,4.7,7.1,0.04,0
-Baramati,18.1518,74.5815,2025-08-21,Low,GREEN,Normal Conditions,0.0,12.8,0.013,0
-Baramati,18.1518,74.5815,2025-08-22,Low,GREEN,Normal Conditions,0.0,14.1,0.033,0
-Baramati,18.1518,74.5815,2025-08-23,Low,GREEN,Normal Conditions,0.0,14.6,0.027,0
-Baramati,18.1518,74.5815,2025-08-24,Low,GREEN,Normal Conditions,0.0,16.7,0.02,0
-Baramati,18.1518,74.5815,2025-08-25,Low,GREEN,Normal Conditions,0.3,18.5,0.047,0
-Hingoli,19.7167,77.15,2025-08-19,Low,GREEN,Normal Conditions,10.9,5.0,0.04,0
-Hingoli,19.7167,77.15,2025-08-20,Low,GREEN,Normal Conditions,0.8,5.0,0.053,0
-Hingoli,19.7167,77.15,2025-08-21,Low,GREEN,Normal Conditions,0.6,5.0,0.007,0
-Hingoli,19.7167,77.15,2025-08-22,Low,GREEN,Normal Conditions,0.0,5.0,0.04,0
-Hingoli,19.7167,77.15,2025-08-23,Low,GREEN,Normal Conditions,1.2,5.0,0.047,0
-Hingoli,19.7167,77.15,2025-08-24,Low,GREEN,Normal Conditions,0.0,5.0,0.053,0
-Hingoli,19.7167,77.15,2025-08-25,Low,GREEN,Normal Conditions,1.8,5.0,0.047,0
-Parbhani,19.2608,76.7701,2025-08-19,Low,GREEN,Normal Conditions,17.6,5.0,0.04,0
-Parbhani,19.2608,76.7701,2025-08-20,Low,GREEN,Normal Conditions,1.3,5.0,0.073,0
-Parbhani,19.2608,76.7701,2025-08-21,Low,GREEN,Normal Conditions,0.1,5.0,0.007,0
-Parbhani,19.2608,76.7701,2025-08-22,Low,GREEN,Normal Conditions,0.1,5.0,0.033,0
-Parbhani,19.2608,76.7701,2025-08-23,Low,GREEN,Normal Conditions,0.3,5.0,0.027,0
-Parbhani,19.2608,76.7701,2025-08-24,Low,GREEN,Normal Conditions,0.0,5.0,0.047,0
-Parbhani,19.2608,76.7701,2025-08-25,Low,GREEN,Normal Conditions,3.9,5.0,0.047,0
-Wardha,20.7453,78.6022,2025-08-19,Low,GREEN,Moderate Rainfall,42.6,5.0,0.04,0
-Wardha,20.7453,78.6022,2025-08-20,Low,GREEN,Normal Conditions,5.9,5.0,0.053,0
-Wardha,20.7453,78.6022,2025-08-21,Low,GREEN,Normal Conditions,1.5,5.0,0.027,0
-Wardha,20.7453,78.6022,2025-08-22,Low,GREEN,Normal Conditions,0.0,5.0,0.02,0
-Wardha,20.7453,78.6022,2025-08-23,Low,GREEN,Normal Conditions,1.5,5.0,0.047,0
-Wardha,20.7453,78.6022,2025-08-24,Low,GREEN,Normal Conditions,0.3,5.0,0.033,0
-Wardha,20.7453,78.6022,2025-08-25,Low,GREEN,Normal Conditions,4.5,5.0,0.027,0
-Phaltan,17.9833,74.4333,2025-08-19,Low,GREEN,Normal Conditions,5.4,42.4,0.053,0
-Phaltan,17.9833,74.4333,2025-08-20,Low,GREEN,High Reservoir Levels,11.3,82.3,0.273,0
-Phaltan,17.9833,74.4333,2025-08-21,Critical,RED,High Reservoir Levels,0.0,100.0,0.967,1
-Phaltan,17.9833,74.4333,2025-08-22,Critical,RED,High Reservoir Levels,0.0,100.0,0.98,1
-Phaltan,17.9833,74.4333,2025-08-23,Critical,RED,High Reservoir Levels,0.0,100.0,0.967,1
-Phaltan,17.9833,74.4333,2025-08-24,Critical,RED,High Reservoir Levels,0.0,100.0,0.967,1
-Phaltan,17.9833,74.4333,2025-08-25,Critical,RED,High Reservoir Levels,0.0,100.0,0.967,1
-Wai,17.95,73.8833,2025-08-19,Low,GREEN,Heavy Rainfall,69.0,41.3,0.04,0
-Wai,17.95,73.8833,2025-08-20,Medium,YELLOW,Weather + Reservoir,83.2,83.4,0.433,0
-Wai,17.95,73.8833,2025-08-21,Critical,RED,High Reservoir Levels,18.4,100.0,0.98,1
-Wai,17.95,73.8833,2025-08-22,Critical,RED,High Reservoir Levels,7.8,100.0,0.98,1
-Wai,17.95,73.8833,2025-08-23,Critical,RED,High Reservoir Levels,11.4,100.0,0.973,1
-Wai,17.95,73.8833,2025-08-24,Critical,RED,High Reservoir Levels,16.8,100.0,0.973,1
-Wai,17.95,73.8833,2025-08-25,Critical,RED,High Reservoir Levels,17.4,100.0,0.967,1
-Mahabaleshwar,17.9167,73.65,2025-08-19,Low,GREEN,Heavy Rainfall,110.4,43.9,0.02,0
-Mahabaleshwar,17.9167,73.65,2025-08-20,Low,GREEN,Weather + Reservoir,72.9,82.6,0.393,0
-Mahabaleshwar,17.9167,73.65,2025-08-21,Critical,RED,High Reservoir Levels,14.0,100.0,0.96,1
-Mahabaleshwar,17.9167,73.65,2025-08-22,Critical,RED,High Reservoir Levels,3.9,100.0,0.96,1
-Mahabaleshwar,17.9167,73.65,2025-08-23,Critical,RED,High Reservoir Levels,9.6,100.0,0.96,1
-Mahabaleshwar,17.9167,73.65,2025-08-24,Critical,RED,High Reservoir Levels,14.7,100.0,0.96,1
-Mahabaleshwar,17.9167,73.65,2025-08-25,Critical,RED,High Reservoir Levels,15.9,100.0,0.96,1
-Panchgani,17.9167,73.8,2025-08-19,Low,GREEN,Heavy Rainfall,110.4,44.3,0.02,0
-Panchgani,17.9167,73.8,2025-08-20,Medium,YELLOW,Weather + Reservoir,72.9,83.7,0.413,0
-Panchgani,17.9167,73.8,2025-08-21,Critical,RED,High Reservoir Levels,14.0,100.0,0.96,1
-Panchgani,17.9167,73.8,2025-08-22,Critical,RED,High Reservoir Levels,3.9,100.0,0.96,1
-Panchgani,17.9167,73.8,2025-08-23,Critical,RED,High Reservoir Levels,9.6,100.0,0.96,1
-Panchgani,17.9167,73.8,2025-08-24,Critical,RED,High Reservoir Levels,14.7,100.0,0.96,1
-Panchgani,17.9167,73.8,2025-08-25,Critical,RED,High Reservoir Levels,15.9,100.0,0.96,1
-Lonavala,18.75,73.4167,2025-08-19,Low,GREEN,Heavy Rainfall,58.3,5.3,0.047,0
-Lonavala,18.75,73.4167,2025-08-20,Low,GREEN,Heavy Rainfall,56.9,7.4,0.047,0
-Lonavala,18.75,73.4167,2025-08-21,Low,GREEN,Normal Conditions,10.5,13.3,0.04,0
-Lonavala,18.75,73.4167,2025-08-22,Low,GREEN,Normal Conditions,5.3,14.7,0.04,0
-Lonavala,18.75,73.4167,2025-08-23,Low,GREEN,Normal Conditions,5.1,12.9,0.04,0
-Lonavala,18.75,73.4167,2025-08-24,Low,GREEN,Normal Conditions,11.4,16.8,0.04,0
-Lonavala,18.75,73.4167,2025-08-25,Low,GREEN,Moderate Rainfall,21.6,18.7,0.04,0
-Khandala,18.7333,73.3833,2025-08-19,Low,GREEN,Heavy Rainfall,58.3,5.0,0.047,0
-Khandala,18.7333,73.3833,2025-08-20,Low,GREEN,Heavy Rainfall,56.9,7.2,0.047,0
-Khandala,18.7333,73.3833,2025-08-21,Low,GREEN,Normal Conditions,10.5,12.2,0.04,0
-Khandala,18.7333,73.3833,2025-08-22,Low,GREEN,Normal Conditions,5.3,15.0,0.033,0
-Khandala,18.7333,73.3833,2025-08-23,Low,GREEN,Normal Conditions,5.1,14.6,0.04,0
-Khandala,18.7333,73.3833,2025-08-24,Low,GREEN,Normal Conditions,11.4,15.8,0.04,0
-Khandala,18.7333,73.3833,2025-08-25,Low,GREEN,Moderate Rainfall,21.6,18.0,0.04,0
-Talegaon,18.7333,73.6833,2025-08-19,Low,GREEN,Moderate Rainfall,42.1,9.5,0.027,0
-Talegaon,18.7333,73.6833,2025-08-20,Low,GREEN,Heavy Rainfall,51.1,7.4,0.027,0
-Talegaon,18.7333,73.6833,2025-08-21,Low,GREEN,Normal Conditions,5.0,12.7,0.033,0
-Talegaon,18.7333,73.6833,2025-08-22,Low,GREEN,Normal Conditions,0.1,13.3,0.033,0
-Talegaon,18.7333,73.6833,2025-08-23,Low,GREEN,Normal Conditions,1.2,14.0,0.04,0
-Talegaon,18.7333,73.6833,2025-08-24,Low,GREEN,Normal Conditions,5.4,17.3,0.027,0
-Talegaon,18.7333,73.6833,2025-08-25,Low,GREEN,Normal Conditions,11.7,18.4,0.033,0
-Chakan,18.7667,73.8667,2025-08-19,Low,GREEN,Normal Conditions,10.4,12.9,0.027,0
-Chakan,18.7667,73.8667,2025-08-20,Low,GREEN,Normal Conditions,15.8,6.7,0.027,0
-Chakan,18.7667,73.8667,2025-08-21,Low,GREEN,Normal Conditions,1.2,10.3,0.033,0
-Chakan,18.7667,73.8667,2025-08-22,Low,GREEN,Normal Conditions,0.0,10.8,0.047,0
-Chakan,18.7667,73.8667,2025-08-23,Low,GREEN,Normal Conditions,0.0,16.3,0.053,0
-Chakan,18.7667,73.8667,2025-08-24,Low,GREEN,Normal Conditions,1.5,14.5,0.033,0
-Chakan,18.7667,73.8667,2025-08-25,Low,GREEN,Normal Conditions,6.6,19.4,0.027,0
-Dehu,18.7167,73.7667,2025-08-19,Low,GREEN,Moderate Rainfall,21.3,7.5,0.033,0
-Dehu,18.7167,73.7667,2025-08-20,Low,GREEN,Moderate Rainfall,28.7,8.0,0.027,0
-Dehu,18.7167,73.7667,2025-08-21,Low,GREEN,Normal Conditions,1.8,11.0,0.033,0
-Dehu,18.7167,73.7667,2025-08-22,Low,GREEN,Normal Conditions,0.0,10.5,0.053,0
-Dehu,18.7167,73.7667,2025-08-23,Low,GREEN,Normal Conditions,0.0,11.2,0.04,0
-Dehu,18.7167,73.7667,2025-08-24,Low,GREEN,Normal Conditions,1.2,15.3,0.033,0
-Dehu,18.7167,73.7667,2025-08-25,Low,GREEN,Normal Conditions,8.1,19.6,0.033,0
-Alandi,18.6833,73.8833,2025-08-19,Low,GREEN,Moderate Rainfall,20.8,8.2,0.027,0
-Alandi,18.6833,73.8833,2025-08-20,Low,GREEN,Normal Conditions,15.2,9.2,0.02,0
-Alandi,18.6833,73.8833,2025-08-21,Low,GREEN,Normal Conditions,0.1,11.7,0.04,0
-Alandi,18.6833,73.8833,2025-08-22,Low,GREEN,Normal Conditions,0.0,10.8,0.033,0
-Alandi,18.6833,73.8833,2025-08-23,Low,GREEN,Normal Conditions,0.0,11.2,0.04,0
-Alandi,18.6833,73.8833,2025-08-24,Low,GREEN,Normal Conditions,0.3,13.9,0.047,0
-Alandi,18.6833,73.8833,2025-08-25,Low,GREEN,Normal Conditions,7.5,15.9,0.04,0
-Saswad,18.35,73.9833,2025-08-19,Low,GREEN,Normal Conditions,16.0,6.7,0.02,0
-Saswad,18.35,73.9833,2025-08-20,Low,GREEN,Normal Conditions,11.1,5.0,0.02,0
-Saswad,18.35,73.9833,2025-08-21,Low,GREEN,Normal Conditions,0.0,9.6,0.027,0
-Saswad,18.35,73.9833,2025-08-22,Low,GREEN,Normal Conditions,0.0,12.7,0.04,0
-Saswad,18.35,73.9833,2025-08-23,Low,GREEN,Normal Conditions,0.0,12.4,0.027,0
-Saswad,18.35,73.9833,2025-08-24,Low,GREEN,Normal Conditions,0.0,19.3,0.027,0
-Saswad,18.35,73.9833,2025-08-25,Low,GREEN,Normal Conditions,6.9,23.2,0.033,0
-Bhor,18.15,73.8333,2025-08-19,Low,GREEN,Normal Conditions,16.8,10.3,0.033,0
-Bhor,18.15,73.8333,2025-08-20,Low,GREEN,Normal Conditions,10.6,10.1,0.033,0
-Bhor,18.15,73.8333,2025-08-21,Low,GREEN,Normal Conditions,0.0,12.3,0.027,0
-Bhor,18.15,73.8333,2025-08-22,Low,GREEN,Normal Conditions,0.0,12.0,0.04,0
-Bhor,18.15,73.8333,2025-08-23,Low,GREEN,Normal Conditions,0.0,17.0,0.033,0
-Bhor,18.15,73.8333,2025-08-24,Low,GREEN,Normal Conditions,0.0,17.6,0.027,0
-Bhor,18.15,73.8333,2025-08-25,Low,GREEN,Normal Conditions,0.3,18.2,0.04,0
-Khed,18.0333,73.4,2025-08-19,Low,GREEN,Heavy Rainfall,50.2,7.3,0.04,0
-Khed,18.0333,73.4,2025-08-20,Low,GREEN,Heavy Rainfall,56.2,11.5,0.047,0
-Khed,18.0333,73.4,2025-08-21,Low,GREEN,Normal Conditions,10.2,10.0,0.04,0
-Khed,18.0333,73.4,2025-08-22,Low,GREEN,Normal Conditions,4.2,8.0,0.04,0
-Khed,18.0333,73.4,2025-08-23,Low,GREEN,Normal Conditions,6.3,11.4,0.027,0
-Khed,18.0333,73.4,2025-08-24,Low,GREEN,Normal Conditions,10.2,18.3,0.04,0
-Khed,18.0333,73.4,2025-08-25,Low,GREEN,Moderate Rainfall,20.4,14.5,0.04,0
-Rajgurunagar,18.8667,73.7667,2025-08-19,Low,GREEN,Moderate Rainfall,22.0,5.9,0.027,0
-Rajgurunagar,18.8667,73.7667,2025-08-20,Low,GREEN,Moderate Rainfall,31.8,9.9,0.02,0
-Rajgurunagar,18.8667,73.7667,2025-08-21,Low,GREEN,Normal Conditions,2.8,9.3,0.027,0
-Rajgurunagar,18.8667,73.7667,2025-08-22,Low,GREEN,Normal Conditions,0.0,10.4,0.033,0
-Rajgurunagar,18.8667,73.7667,2025-08-23,Low,GREEN,Normal Conditions,1.5,15.2,0.033,0
-Rajgurunagar,18.8667,73.7667,2025-08-24,Low,GREEN,Normal Conditions,3.6,15.4,0.027,0
-Rajgurunagar,18.8667,73.7667,2025-08-25,Low,GREEN,Normal Conditions,8.7,15.7,0.02,0
-Ambegaon,19.0,73.7167,2025-08-19,Low,GREEN,Moderate Rainfall,22.0,5.4,0.027,0
-Ambegaon,19.0,73.7167,2025-08-20,Low,GREEN,Moderate Rainfall,31.8,7.0,0.02,0
-Ambegaon,19.0,73.7167,2025-08-21,Low,GREEN,Normal Conditions,2.8,11.7,0.033,0
-Ambegaon,19.0,73.7167,2025-08-22,Low,GREEN,Normal Conditions,0.0,13.5,0.033,0
-Ambegaon,19.0,73.7167,2025-08-23,Low,GREEN,Normal Conditions,1.5,12.9,0.033,0
-Ambegaon,19.0,73.7167,2025-08-24,Low,GREEN,Normal Conditions,3.6,13.5,0.027,0
-Ambegaon,19.0,73.7167,2025-08-25,Low,GREEN,Normal Conditions,8.7,17.6,0.02,0
-Junnar,19.2,73.8833,2025-08-19,Low,GREEN,Normal Conditions,11.8,8.7,0.02,0
-Junnar,19.2,73.8833,2025-08-20,Low,GREEN,Normal Conditions,12.8,6.8,0.02,0
-Junnar,19.2,73.8833,2025-08-21,Low,GREEN,Normal Conditions,0.4,7.9,0.047,0
-Junnar,19.2,73.8833,2025-08-22,Low,GREEN,Normal Conditions,0.0,13.8,0.033,0
-Junnar,19.2,73.8833,2025-08-23,Low,GREEN,Normal Conditions,0.6,14.2,0.04,0
-Junnar,19.2,73.8833,2025-08-24,Low,GREEN,Normal Conditions,0.6,18.6,0.033,0
-Junnar,19.2,73.8833,2025-08-25,Low,GREEN,Normal Conditions,7.8,19.4,0.027,0
-Narayangaon,19.1,73.9833,2025-08-19,Low,GREEN,Normal Conditions,3.6,5.0,0.053,0
-Narayangaon,19.1,73.9833,2025-08-20,Low,GREEN,Normal Conditions,3.6,7.3,0.033,0
-Narayangaon,19.1,73.9833,2025-08-21,Low,GREEN,Normal Conditions,0.0,13.6,0.053,0
-Narayangaon,19.1,73.9833,2025-08-22,Low,GREEN,Normal Conditions,0.0,15.3,0.027,0
-Narayangaon,19.1,73.9833,2025-08-23,Low,GREEN,Normal Conditions,0.0,14.4,0.033,0
-Narayangaon,19.1,73.9833,2025-08-24,Low,GREEN,Normal Conditions,0.0,15.9,0.027,0
-Narayangaon,19.1,73.9833,2025-08-25,Low,GREEN,Normal Conditions,2.4,21.1,0.04,0
-Manchar,19.0333,73.9167,2025-08-19,Low,GREEN,Normal Conditions,5.0,5.9,0.02,0
-Manchar,19.0333,73.9167,2025-08-20,Low,GREEN,Normal Conditions,8.0,6.5,0.027,0
-Manchar,19.0333,73.9167,2025-08-21,Low,GREEN,Normal Conditions,0.5,10.6,0.047,0
-Manchar,19.0333,73.9167,2025-08-22,Low,GREEN,Normal Conditions,0.0,12.3,0.053,0
-Manchar,19.0333,73.9167,2025-08-23,Low,GREEN,Normal Conditions,0.0,14.5,0.04,0
-Manchar,19.0333,73.9167,2025-08-24,Low,GREEN,Normal Conditions,0.0,17.6,0.033,0
-Manchar,19.0333,73.9167,2025-08-25,Low,GREEN,Normal Conditions,3.3,20.6,0.027,0
-Ghodegaon,18.6667,73.7667,2025-08-19,Low,GREEN,Moderate Rainfall,32.4,7.3,0.02,0
-Ghodegaon,18.6667,73.7667,2025-08-20,Low,GREEN,Moderate Rainfall,25.5,11.4,0.02,0
-Ghodegaon,18.6667,73.7667,2025-08-21,Low,GREEN,Normal Conditions,0.0,11.4,0.033,0
-Ghodegaon,18.6667,73.7667,2025-08-22,Low,GREEN,Normal Conditions,0.0,16.2,0.04,0
-Ghodegaon,18.6667,73.7667,2025-08-23,Low,GREEN,Normal Conditions,0.0,15.7,0.04,0
-Ghodegaon,18.6667,73.7667,2025-08-24,Low,GREEN,Normal Conditions,0.3,17.3,0.033,0
-Ghodegaon,18.6667,73.7667,2025-08-25,Low,GREEN,Normal Conditions,4.5,19.4,0.04,0
-Shirur,18.8167,74.3667,2025-08-19,Low,GREEN,Normal Conditions,5.0,6.3,0.027,0
-Shirur,18.8167,74.3667,2025-08-20,Low,GREEN,Normal Conditions,7.3,6.6,0.04,0
-Shirur,18.8167,74.3667,2025-08-21,Low,GREEN,Normal Conditions,0.4,8.1,0.047,0
-Shirur,18.8167,74.3667,2025-08-22,Low,GREEN,Normal Conditions,0.0,15.3,0.007,0
-Shirur,18.8167,74.3667,2025-08-23,Low,GREEN,Normal Conditions,0.0,10.4,0.047,0
-Shirur,18.8167,74.3667,2025-08-24,Low,GREEN,Normal Conditions,0.0,18.2,0.04,0
-Shirur,18.8167,74.3667,2025-08-25,Low,GREEN,Normal Conditions,1.2,19.4,0.053,0
-Daund,18.4667,74.5833,2025-08-19,Low,GREEN,Normal Conditions,19.6,11.1,0.04,0
-Daund,18.4667,74.5833,2025-08-20,Low,GREEN,Normal Conditions,2.0,12.9,0.04,0
-Daund,18.4667,74.5833,2025-08-21,Low,GREEN,Normal Conditions,0.0,9.2,0.033,0
-Daund,18.4667,74.5833,2025-08-22,Low,GREEN,Normal Conditions,0.0,12.7,0.0,0
-Daund,18.4667,74.5833,2025-08-23,Low,GREEN,Normal Conditions,0.0,13.2,0.027,0
-Daund,18.4667,74.5833,2025-08-24,Low,GREEN,Normal Conditions,0.0,16.4,0.027,0
-Daund,18.4667,74.5833,2025-08-25,Low,GREEN,Normal Conditions,0.6,19.1,0.067,0
-Indapur,18.1167,75.0167,2025-08-19,Low,GREEN,Normal Conditions,18.4,6.4,0.027,0
-Indapur,18.1167,75.0167,2025-08-20,Low,GREEN,Normal Conditions,1.5,11.1,0.053,0
-Indapur,18.1167,75.0167,2025-08-21,Low,GREEN,Normal Conditions,0.1,9.6,0.007,0
-Indapur,18.1167,75.0167,2025-08-22,Low,GREEN,Normal Conditions,0.0,10.7,0.0,0
-Indapur,18.1167,75.0167,2025-08-23,Low,GREEN,Normal Conditions,0.0,15.2,0.027,0
-Indapur,18.1167,75.0167,2025-08-24,Low,GREEN,Normal Conditions,0.0,16.5,0.033,0
-Indapur,18.1167,75.0167,2025-08-25,Low,GREEN,Normal Conditions,0.9,14.5,0.047,0
-Purandar,18.3,73.9833,2025-08-19,Low,GREEN,Normal Conditions,13.1,7.1,0.027,0
-Purandar,18.3,73.9833,2025-08-20,Low,GREEN,Normal Conditions,9.6,8.2,0.027,0
-Purandar,18.3,73.9833,2025-08-21,Low,GREEN,Normal Conditions,0.0,8.6,0.027,0
-Purandar,18.3,73.9833,2025-08-22,Low,GREEN,Normal Conditions,0.0,11.0,0.027,0
-Purandar,18.3,73.9833,2025-08-23,Low,GREEN,Normal Conditions,0.0,12.9,0.027,0
-Purandar,18.3,73.9833,2025-08-24,Low,GREEN,Normal Conditions,0.0,13.5,0.047,0
-Purandar,18.3,73.9833,2025-08-25,Low,GREEN,Normal Conditions,3.3,20.2,0.02,0
-Velhe,18.2833,73.6167,2025-08-19,Low,GREEN,Heavy Rainfall,61.6,5.0,0.04,0
-Velhe,18.2833,73.6167,2025-08-20,Low,GREEN,Heavy Rainfall,57.5,7.3,0.033,0
-Velhe,18.2833,73.6167,2025-08-21,Low,GREEN,Normal Conditions,14.5,9.8,0.033,0
-Velhe,18.2833,73.6167,2025-08-22,Low,GREEN,Normal Conditions,5.6,10.0,0.033,0
-Velhe,18.2833,73.6167,2025-08-23,Low,GREEN,Normal Conditions,7.8,12.1,0.033,0
-Velhe,18.2833,73.6167,2025-08-24,Low,GREEN,Normal Conditions,15.9,20.0,0.033,0
-Velhe,18.2833,73.6167,2025-08-25,Low,GREEN,Moderate Rainfall,23.7,16.4,0.04,0
-Mulshi,18.5333,73.5,2025-08-19,Low,GREEN,Heavy Rainfall,58.3,11.3,0.047,0
-Mulshi,18.5333,73.5,2025-08-20,Low,GREEN,Heavy Rainfall,56.9,14.5,0.047,0
-Mulshi,18.5333,73.5,2025-08-21,Low,GREEN,Normal Conditions,10.5,17.2,0.047,0
-Mulshi,18.5333,73.5,2025-08-22,Low,GREEN,Normal Conditions,5.3,23.1,0.04,0
-Mulshi,18.5333,73.5,2025-08-23,Low,GREEN,Normal Conditions,5.1,25.5,0.04,0
-Mulshi,18.5333,73.5,2025-08-24,Low,GREEN,Normal Conditions,11.4,32.3,0.04,0
-Mulshi,18.5333,73.5,2025-08-25,Low,GREEN,Moderate Rainfall,21.6,41.0,0.04,0
-Haveli,18.4167,73.8167,2025-08-19,Low,GREEN,Normal Conditions,18.1,7.1,0.033,0
-Haveli,18.4167,73.8167,2025-08-20,Low,GREEN,Moderate Rainfall,20.5,8.4,0.033,0
-Haveli,18.4167,73.8167,2025-08-21,Low,GREEN,Normal Conditions,0.0,12.8,0.033,0
-Haveli,18.4167,73.8167,2025-08-22,Low,GREEN,Normal Conditions,0.0,16.7,0.02,0
-Haveli,18.4167,73.8167,2025-08-23,Low,GREEN,Normal Conditions,0.0,17.7,0.047,0
-Haveli,18.4167,73.8167,2025-08-24,Low,GREEN,Normal Conditions,0.0,17.4,0.033,0
-Haveli,18.4167,73.8167,2025-08-25,Low,GREEN,Normal Conditions,2.4,18.8,0.04,0
-Maval,18.7167,73.5333,2025-08-19,Low,GREEN,Moderate Rainfall,27.9,6.3,0.027,0
-Maval,18.7167,73.5333,2025-08-20,Low,GREEN,Moderate Rainfall,43.6,7.9,0.033,0
-Maval,18.7167,73.5333,2025-08-21,Low,GREEN,Normal Conditions,2.1,9.3,0.033,0
-Maval,18.7167,73.5333,2025-08-22,Low,GREEN,Normal Conditions,0.1,11.7,0.047,0
-Maval,18.7167,73.5333,2025-08-23,Low,GREEN,Normal Conditions,6.3,11.7,0.04,0
-Maval,18.7167,73.5333,2025-08-24,Low,GREEN,Normal Conditions,6.6,15.4,0.033,0
-Maval,18.7167,73.5333,2025-08-25,Low,GREEN,Normal Conditions,10.2,20.2,0.027,0
-Kankavli,16.2667,73.7,2025-08-19,Low,GREEN,Heavy Rainfall,68.0,5.0,0.053,0
-Kankavli,16.2667,73.7,2025-08-20,Low,GREEN,Moderate Rainfall,27.4,5.0,0.04,0
-Kankavli,16.2667,73.7,2025-08-21,Low,GREEN,Normal Conditions,6.7,8.8,0.04,0
-Kankavli,16.2667,73.7,2025-08-22,Low,GREEN,Normal Conditions,3.4,6.1,0.02,0
-Kankavli,16.2667,73.7,2025-08-23,Low,GREEN,Normal Conditions,3.0,5.0,0.047,0
-Kankavli,16.2667,73.7,2025-08-24,Low,GREEN,Normal Conditions,3.3,5.0,0.047,0
-Kankavli,16.2667,73.7,2025-08-25,Low,GREEN,Normal Conditions,9.6,8.1,0.047,0
-Kudal,16.0167,73.6833,2025-08-19,Low,GREEN,Heavy Rainfall,61.9,8.9,0.04,0
-Kudal,16.0167,73.6833,2025-08-20,Low,GREEN,Moderate Rainfall,22.9,5.7,0.067,0
-Kudal,16.0167,73.6833,2025-08-21,Low,GREEN,Normal Conditions,9.7,5.0,0.047,0
-Kudal,16.0167,73.6833,2025-08-22,Low,GREEN,Normal Conditions,4.1,5.8,0.06,0
-Kudal,16.0167,73.6833,2025-08-23,Low,GREEN,Normal Conditions,1.8,8.1,0.06,0
-Kudal,16.0167,73.6833,2025-08-24,Low,GREEN,Normal Conditions,2.1,5.0,0.027,0
-Kudal,16.0167,73.6833,2025-08-25,Low,GREEN,Normal Conditions,8.4,5.0,0.06,0
-Sawantwadi,15.9,73.8167,2025-08-19,Low,GREEN,Heavy Rainfall,63.6,5.0,0.053,0
-Sawantwadi,15.9,73.8167,2025-08-20,Low,GREEN,Moderate Rainfall,26.3,5.4,0.04,0
-Sawantwadi,15.9,73.8167,2025-08-21,Low,GREEN,Normal Conditions,7.0,5.0,0.04,0
-Sawantwadi,15.9,73.8167,2025-08-22,Low,GREEN,Normal Conditions,3.5,5.0,0.04,0
-Sawantwadi,15.9,73.8167,2025-08-23,Low,GREEN,Normal Conditions,2.7,5.4,0.047,0
-Sawantwadi,15.9,73.8167,2025-08-24,Low,GREEN,Normal Conditions,3.6,5.0,0.047,0
-Sawantwadi,15.9,73.8167,2025-08-25,Low,GREEN,Normal Conditions,8.4,5.6,0.047,0
-Dodamarg,15.7333,73.8167,2025-08-19,Low,GREEN,Heavy Rainfall,88.1,5.0,0.053,0
-Dodamarg,15.7333,73.8167,2025-08-20,Low,GREEN,Heavy Rainfall,53.5,5.0,0.053,0
-Dodamarg,15.7333,73.8167,2025-08-21,Low,GREEN,Normal Conditions,16.3,5.0,0.08,0
-Dodamarg,15.7333,73.8167,2025-08-22,Low,GREEN,Normal Conditions,3.9,5.2,0.047,0
-Dodamarg,15.7333,73.8167,2025-08-23,Low,GREEN,Normal Conditions,2.7,5.0,0.067,0
-Dodamarg,15.7333,73.8167,2025-08-24,Low,GREEN,Normal Conditions,6.0,6.0,0.053,0
-Dodamarg,15.7333,73.8167,2025-08-25,Low,GREEN,Normal Conditions,17.1,6.4,0.073,0
-Vengurla,15.8667,73.6167,2025-08-19,Low,GREEN,Heavy Rainfall,86.0,5.0,0.073,0
-Vengurla,15.8667,73.6167,2025-08-20,Low,GREEN,Moderate Rainfall,37.7,5.0,0.067,0
-Vengurla,15.8667,73.6167,2025-08-21,Low,GREEN,Normal Conditions,12.6,5.0,0.047,0
-Vengurla,15.8667,73.6167,2025-08-22,Low,GREEN,Normal Conditions,6.8,5.0,0.073,0
-Vengurla,15.8667,73.6167,2025-08-23,Low,GREEN,Normal Conditions,3.6,6.4,0.033,0
-Vengurla,15.8667,73.6167,2025-08-24,Low,GREEN,Normal Conditions,3.0,5.0,0.033,0
-Vengurla,15.8667,73.6167,2025-08-25,Low,GREEN,Normal Conditions,8.7,5.0,0.053,0
-Malvan,16.0667,73.4667,2025-08-19,Low,GREEN,Heavy Rainfall,75.4,5.4,0.087,0
-Malvan,16.0667,73.4667,2025-08-20,Low,GREEN,Moderate Rainfall,36.2,5.0,0.067,0
-Malvan,16.0667,73.4667,2025-08-21,Low,GREEN,Normal Conditions,11.3,5.0,0.04,0
-Malvan,16.0667,73.4667,2025-08-22,Low,GREEN,Normal Conditions,5.6,6.0,0.073,0
-Malvan,16.0667,73.4667,2025-08-23,Low,GREEN,Normal Conditions,3.0,7.7,0.047,0
-Malvan,16.0667,73.4667,2025-08-24,Low,GREEN,Normal Conditions,2.1,8.1,0.027,0
-Malvan,16.0667,73.4667,2025-08-25,Low,GREEN,Normal Conditions,7.5,6.6,0.067,0
-Devgad,16.3833,73.3833,2025-08-19,Low,GREEN,Heavy Rainfall,92.8,5.0,0.053,0
-Devgad,16.3833,73.3833,2025-08-20,Low,GREEN,Moderate Rainfall,31.6,5.0,0.06,0
-Devgad,16.3833,73.3833,2025-08-21,Low,GREEN,Normal Conditions,10.3,5.0,0.04,0
-Devgad,16.3833,73.3833,2025-08-22,Low,GREEN,Normal Conditions,5.5,5.9,0.06,0
-Devgad,16.3833,73.3833,2025-08-23,Low,GREEN,Normal Conditions,3.6,5.0,0.06,0
-Devgad,16.3833,73.3833,2025-08-24,Low,GREEN,Normal Conditions,3.6,5.5,0.053,0
-Devgad,16.3833,73.3833,2025-08-25,Low,GREEN,Normal Conditions,10.5,5.0,0.067,0
-Vaibhavwadi,16.5167,73.7333,2025-08-19,Low,GREEN,Heavy Rainfall,66.2,5.0,0.053,0
-Vaibhavwadi,16.5167,73.7333,2025-08-20,Low,GREEN,Moderate Rainfall,23.1,9.1,0.04,0
-Vaibhavwadi,16.5167,73.7333,2025-08-21,Low,GREEN,Normal Conditions,8.9,5.7,0.027,0
-Vaibhavwadi,16.5167,73.7333,2025-08-22,Low,GREEN,Normal Conditions,3.3,5.0,0.033,0
-Vaibhavwadi,16.5167,73.7333,2025-08-23,Low,GREEN,Normal Conditions,2.4,7.6,0.047,0
-Vaibhavwadi,16.5167,73.7333,2025-08-24,Low,GREEN,Normal Conditions,2.1,5.3,0.04,0
-Vaibhavwadi,16.5167,73.7333,2025-08-25,Low,GREEN,Normal Conditions,9.3,5.5,0.053,0
+City,Latitude,Longitude,Date,Risk_Level,Alert_Level,Primary_Risk_Factor,Confidence,Precipitation_mm,Max_Reservoir_Fill_Percent,Flood_Probability,Binary_Risk,Explanation
+Pune,18.5204,73.8567,2025-08-20,Low,GREEN,Normal Conditions,High,10.7,6.6,0.2,0,Normal conditions
+Pune,18.5204,73.8567,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.2,8.1,0.235,0,Normal conditions
+Pune,18.5204,73.8567,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,9.7,0.216,0,Normal conditions
+Pune,18.5204,73.8567,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.225,0,Normal conditions
+Pune,18.5204,73.8567,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.0,12.8,0.204,0,Normal conditions
+Pune,18.5204,73.8567,2025-08-25,Medium,YELLOW,Normal Conditions,High,0.9,14.4,0.235,0,Normal conditions
+Pune,18.5204,73.8567,2025-08-26,Medium,YELLOW,Normal Conditions,High,2.4,16.0,0.227,0,Normal conditions
+Kolhapur,16.705,74.2433,2025-08-20,Medium,YELLOW,Normal Conditions,High,6.6,7.9,0.236,0,Normal conditions
+Kolhapur,16.705,74.2433,2025-08-21,Low,GREEN,Normal Conditions,High,0.0,10.9,0.197,0,Normal conditions
+Kolhapur,16.705,74.2433,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,13.8,0.192,0,Normal conditions
+Kolhapur,16.705,74.2433,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,16.8,0.121,0,Normal conditions
+Kolhapur,16.705,74.2433,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,19.7,0.15,0,Normal conditions
+Kolhapur,16.705,74.2433,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,22.6,0.124,0,Normal conditions
+Kolhapur,16.705,74.2433,2025-08-26,Low,GREEN,Normal Conditions,High,3.6,25.6,0.14,0,Normal conditions
+Nashik,19.9975,73.7898,2025-08-20,Medium,YELLOW,Normal Conditions,High,3.0,15.2,0.208,0,Normal conditions
+Nashik,19.9975,73.7898,2025-08-21,Low,GREEN,Normal Conditions,High,0.2,25.3,0.185,0,Normal conditions
+Nashik,19.9975,73.7898,2025-08-22,Low,GREEN,Normal Conditions,High,0.6,35.5,0.131,0,Normal conditions
+Nashik,19.9975,73.7898,2025-08-23,Low,GREEN,Normal Conditions,High,0.8,45.6,0.093,0,Normal conditions
+Nashik,19.9975,73.7898,2025-08-24,Low,GREEN,Normal Conditions,High,0.6,55.8,0.072,0,Normal conditions
+Nashik,19.9975,73.7898,2025-08-25,Low,GREEN,Elevated Reservoir Levels,High,2.1,65.9,0.055,0,Normal conditions
+Nashik,19.9975,73.7898,2025-08-26,Low,GREEN,Elevated Reservoir Levels,High,11.4,76.1,0.007,0,Reservoir high 76.1%
+Thane,19.2183,72.9781,2025-08-20,Medium,YELLOW,Heavy Rainfall,Medium,53.1,11.5,0.345,0,Moderate rainfall 53.1mm
+Thane,19.2183,72.9781,2025-08-21,Medium,YELLOW,Normal Conditions,High,8.3,18.0,0.21,0,Normal conditions
+Thane,19.2183,72.9781,2025-08-22,Low,GREEN,Normal Conditions,High,5.0,24.5,0.2,0,Normal conditions
+Thane,19.2183,72.9781,2025-08-23,Low,GREEN,Normal Conditions,High,7.5,31.0,0.145,0,Normal conditions
+Thane,19.2183,72.9781,2025-08-24,Low,GREEN,Normal Conditions,High,5.7,37.4,0.162,0,Normal conditions
+Thane,19.2183,72.9781,2025-08-25,Low,GREEN,Normal Conditions,High,18.9,43.9,0.141,0,Normal conditions
+Thane,19.2183,72.9781,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,59.7,50.4,0.225,0,Moderate rainfall 59.7mm
+Solapur,17.6599,75.9064,2025-08-20,Medium,YELLOW,Normal Conditions,High,1.4,8.2,0.23,0,Normal conditions
+Solapur,17.6599,75.9064,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.4,11.4,0.219,0,Normal conditions
+Solapur,17.6599,75.9064,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,14.5,0.223,0,Normal conditions
+Solapur,17.6599,75.9064,2025-08-23,Low,GREEN,Normal Conditions,High,0.3,17.7,0.157,0,Normal conditions
+Solapur,17.6599,75.9064,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,20.9,0.162,0,Normal conditions
+Solapur,17.6599,75.9064,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,24.1,0.17,0,Normal conditions
+Solapur,17.6599,75.9064,2025-08-26,Medium,YELLOW,Normal Conditions,High,2.1,27.3,0.207,0,Normal conditions
+Satara,17.6805,74.0183,2025-08-20,Medium,YELLOW,Normal Conditions,High,19.1,12.6,0.234,0,Normal conditions
+Satara,17.6805,74.0183,2025-08-21,Low,GREEN,Normal Conditions,High,0.5,20.1,0.177,0,Normal conditions
+Satara,17.6805,74.0183,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.7,27.7,0.206,0,Normal conditions
+Satara,17.6805,74.0183,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,35.2,0.101,0,Normal conditions
+Satara,17.6805,74.0183,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,42.8,0.083,0,Normal conditions
+Satara,17.6805,74.0183,2025-08-25,Low,GREEN,Normal Conditions,High,0.6,50.3,0.087,0,Normal conditions
+Satara,17.6805,74.0183,2025-08-26,Low,GREEN,Normal Conditions,High,6.0,57.9,0.066,0,Normal conditions
+Sindhudurg,16.0667,73.5,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,37.4,5.3,0.253,0,Normal conditions
+Sindhudurg,16.0667,73.5,2025-08-21,Medium,YELLOW,Normal Conditions,High,11.3,5.6,0.24,0,Normal conditions
+Sindhudurg,16.0667,73.5,2025-08-22,Medium,YELLOW,Normal Conditions,High,4.8,6.0,0.277,0,Normal conditions
+Sindhudurg,16.0667,73.5,2025-08-23,Medium,YELLOW,Normal Conditions,Medium,4.7,6.3,0.307,0,Normal conditions
+Sindhudurg,16.0667,73.5,2025-08-24,Medium,YELLOW,Normal Conditions,High,2.7,6.6,0.267,0,Normal conditions
+Sindhudurg,16.0667,73.5,2025-08-25,Medium,YELLOW,Normal Conditions,High,5.7,6.9,0.27,0,Normal conditions
+Sindhudurg,16.0667,73.5,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,51.3,7.2,0.277,0,Moderate rainfall 51.3mm
+Palghar,19.6967,72.7661,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,51.1,5.0,0.281,0,Moderate rainfall 51.1mm
+Palghar,19.6967,72.7661,2025-08-21,Medium,YELLOW,Moderate Rainfall,High,20.8,5.0,0.253,0,Normal conditions
+Palghar,19.6967,72.7661,2025-08-22,Medium,YELLOW,Normal Conditions,High,9.9,5.0,0.23,0,Normal conditions
+Palghar,19.6967,72.7661,2025-08-23,Medium,YELLOW,Normal Conditions,High,13.1,5.0,0.237,0,Normal conditions
+Palghar,19.6967,72.7661,2025-08-24,Medium,YELLOW,Normal Conditions,High,14.7,5.0,0.243,0,Normal conditions
+Palghar,19.6967,72.7661,2025-08-25,Medium,YELLOW,Heavy Rainfall,High,54.0,5.0,0.296,0,Moderate rainfall 54.0mm
+Palghar,19.6967,72.7661,2025-08-26,High,ORANGE,Heavy Rainfall,Low,64.5,5.0,0.353,0,Moderate rainfall 64.5mm
+Ahmednagar,19.0948,74.748,2025-08-20,Low,GREEN,Normal Conditions,High,1.3,32.9,0.099,0,Normal conditions
+Ahmednagar,19.0948,74.748,2025-08-21,Low,GREEN,Normal Conditions,High,0.0,30.7,0.117,0,Normal conditions
+Ahmednagar,19.0948,74.748,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,28.6,0.117,0,Normal conditions
+Ahmednagar,19.0948,74.748,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.0,26.5,0.222,0,Normal conditions
+Ahmednagar,19.0948,74.748,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,24.4,0.176,0,Normal conditions
+Ahmednagar,19.0948,74.748,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,22.3,0.149,0,Normal conditions
+Ahmednagar,19.0948,74.748,2025-08-26,Low,GREEN,Normal Conditions,High,6.3,20.2,0.142,0,Normal conditions
+Jalgaon,21.0077,75.5626,2025-08-20,Low,GREEN,Normal Conditions,High,6.2,20.2,0.179,0,Normal conditions
+Jalgaon,21.0077,75.5626,2025-08-21,Low,GREEN,Normal Conditions,High,1.3,35.4,0.131,0,Normal conditions
+Jalgaon,21.0077,75.5626,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,50.6,0.109,0,Normal conditions
+Jalgaon,21.0077,75.5626,2025-08-23,Low,GREEN,Elevated Reservoir Levels,High,0.0,65.7,0.028,0,Normal conditions
+Jalgaon,21.0077,75.5626,2025-08-24,Low,GREEN,High Reservoir Levels,High,2.1,80.9,0.049,0,Reservoir high 80.9%
+Jalgaon,21.0077,75.5626,2025-08-25,High,ORANGE,High Reservoir Levels,High,6.6,96.1,0.016,0,Reservoir critical 96.1%
+Jalgaon,21.0077,75.5626,2025-08-26,High,ORANGE,High Reservoir Levels,High,13.2,100.0,0.024,0,Reservoir critical 100.0%
+Bhiwandi,19.3002,73.0502,2025-08-20,Medium,YELLOW,Heavy Rainfall,Medium,53.1,11.5,0.345,0,Moderate rainfall 53.1mm
+Bhiwandi,19.3002,73.0502,2025-08-21,Medium,YELLOW,Normal Conditions,High,8.3,18.0,0.21,0,Normal conditions
+Bhiwandi,19.3002,73.0502,2025-08-22,Low,GREEN,Normal Conditions,High,5.0,24.5,0.2,0,Normal conditions
+Bhiwandi,19.3002,73.0502,2025-08-23,Low,GREEN,Normal Conditions,High,7.5,31.0,0.145,0,Normal conditions
+Bhiwandi,19.3002,73.0502,2025-08-24,Low,GREEN,Normal Conditions,High,5.7,37.4,0.162,0,Normal conditions
+Bhiwandi,19.3002,73.0502,2025-08-25,Low,GREEN,Normal Conditions,High,18.9,43.9,0.141,0,Normal conditions
+Bhiwandi,19.3002,73.0502,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,59.7,50.4,0.225,0,Moderate rainfall 59.7mm
+Kalyan,19.2437,73.1355,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,52.5,11.5,0.27,0,Moderate rainfall 52.5mm
+Kalyan,19.2437,73.1355,2025-08-21,Low,GREEN,Normal Conditions,High,6.4,18.0,0.18,0,Normal conditions
+Kalyan,19.2437,73.1355,2025-08-22,Low,GREEN,Normal Conditions,High,2.2,24.5,0.188,0,Normal conditions
+Kalyan,19.2437,73.1355,2025-08-23,Low,GREEN,Normal Conditions,High,6.1,31.0,0.117,0,Normal conditions
+Kalyan,19.2437,73.1355,2025-08-24,Low,GREEN,Normal Conditions,High,5.1,37.4,0.145,0,Normal conditions
+Kalyan,19.2437,73.1355,2025-08-25,Low,GREEN,Normal Conditions,High,14.7,43.9,0.103,0,Normal conditions
+Kalyan,19.2437,73.1355,2025-08-26,Medium,YELLOW,Moderate Rainfall,High,49.2,50.4,0.219,0,Moderate rainfall 49.2mm
+Dombivli,19.2183,73.0868,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,52.5,11.5,0.27,0,Moderate rainfall 52.5mm
+Dombivli,19.2183,73.0868,2025-08-21,Low,GREEN,Normal Conditions,High,6.4,18.0,0.18,0,Normal conditions
+Dombivli,19.2183,73.0868,2025-08-22,Low,GREEN,Normal Conditions,High,2.2,24.5,0.188,0,Normal conditions
+Dombivli,19.2183,73.0868,2025-08-23,Low,GREEN,Normal Conditions,High,6.1,31.0,0.117,0,Normal conditions
+Dombivli,19.2183,73.0868,2025-08-24,Low,GREEN,Normal Conditions,High,5.1,37.4,0.145,0,Normal conditions
+Dombivli,19.2183,73.0868,2025-08-25,Low,GREEN,Normal Conditions,High,14.7,43.9,0.103,0,Normal conditions
+Dombivli,19.2183,73.0868,2025-08-26,Medium,YELLOW,Moderate Rainfall,High,49.2,50.4,0.219,0,Moderate rainfall 49.2mm
+Vasai,19.4667,72.8167,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,60.0,5.0,0.29,0,Moderate rainfall 60.0mm
+Vasai,19.4667,72.8167,2025-08-21,Medium,YELLOW,Normal Conditions,High,13.7,5.0,0.23,0,Normal conditions
+Vasai,19.4667,72.8167,2025-08-22,Medium,YELLOW,Normal Conditions,High,7.0,5.0,0.23,0,Normal conditions
+Vasai,19.4667,72.8167,2025-08-23,Medium,YELLOW,Normal Conditions,High,10.2,5.0,0.23,0,Normal conditions
+Vasai,19.4667,72.8167,2025-08-24,Medium,YELLOW,Normal Conditions,High,9.6,5.0,0.23,0,Normal conditions
+Vasai,19.4667,72.8167,2025-08-25,Medium,YELLOW,Moderate Rainfall,High,38.4,5.0,0.26,0,Normal conditions
+Vasai,19.4667,72.8167,2025-08-26,Medium,YELLOW,Heavy Rainfall,Low,78.3,5.0,0.321,0,Moderate rainfall 78.3mm
+Virar,19.4559,72.8111,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,52.2,5.0,0.287,0,Moderate rainfall 52.2mm
+Virar,19.4559,72.8111,2025-08-21,Medium,YELLOW,Normal Conditions,High,17.7,5.0,0.237,0,Normal conditions
+Virar,19.4559,72.8111,2025-08-22,Medium,YELLOW,Normal Conditions,High,8.5,5.0,0.237,0,Normal conditions
+Virar,19.4559,72.8111,2025-08-23,Medium,YELLOW,Normal Conditions,High,9.5,5.0,0.227,0,Normal conditions
+Virar,19.4559,72.8111,2025-08-24,Medium,YELLOW,Normal Conditions,High,9.9,5.0,0.237,0,Normal conditions
+Virar,19.4559,72.8111,2025-08-25,Medium,YELLOW,Moderate Rainfall,High,44.7,5.0,0.282,0,Moderate rainfall 44.7mm
+Virar,19.4559,72.8111,2025-08-26,Medium,YELLOW,Heavy Rainfall,Low,72.3,5.0,0.325,0,Moderate rainfall 72.3mm
+Ulhasnagar,19.2215,73.1645,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,52.5,0.0,0.276,0,Moderate rainfall 52.5mm
+Ulhasnagar,19.2215,73.1645,2025-08-21,Medium,YELLOW,Normal Conditions,High,6.4,0.0,0.25,0,Normal conditions
+Ulhasnagar,19.2215,73.1645,2025-08-22,Medium,YELLOW,Normal Conditions,High,2.2,0.0,0.241,0,Normal conditions
+Ulhasnagar,19.2215,73.1645,2025-08-23,Medium,YELLOW,Normal Conditions,High,6.1,0.0,0.233,0,Normal conditions
+Ulhasnagar,19.2215,73.1645,2025-08-24,Medium,YELLOW,Normal Conditions,High,5.1,0.0,0.241,0,Normal conditions
+Ulhasnagar,19.2215,73.1645,2025-08-25,Medium,YELLOW,Normal Conditions,High,14.7,0.0,0.241,0,Normal conditions
+Ulhasnagar,19.2215,73.1645,2025-08-26,Medium,YELLOW,Moderate Rainfall,High,49.2,0.0,0.264,0,Moderate rainfall 49.2mm
+Sangamner,19.5667,74.2167,2025-08-20,Low,GREEN,Normal Conditions,High,7.8,28.5,0.145,0,Normal conditions
+Sangamner,19.5667,74.2167,2025-08-21,Medium,YELLOW,Normal Conditions,High,2.2,24.6,0.209,0,Normal conditions
+Sangamner,19.5667,74.2167,2025-08-22,Low,GREEN,Normal Conditions,High,1.0,20.7,0.197,0,Normal conditions
+Sangamner,19.5667,74.2167,2025-08-23,Low,GREEN,Normal Conditions,High,0.3,16.8,0.163,0,Normal conditions
+Sangamner,19.5667,74.2167,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.3,12.9,0.23,0,Normal conditions
+Sangamner,19.5667,74.2167,2025-08-25,Medium,YELLOW,Normal Conditions,High,1.8,9.0,0.24,0,Normal conditions
+Sangamner,19.5667,74.2167,2025-08-26,Medium,YELLOW,Moderate Rainfall,High,20.7,5.1,0.242,0,Normal conditions
+Baramati,18.1518,74.5815,2025-08-20,Medium,YELLOW,Normal Conditions,High,1.2,7.1,0.223,0,Normal conditions
+Baramati,18.1518,74.5815,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.0,9.2,0.217,0,Normal conditions
+Baramati,18.1518,74.5815,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.223,0,Normal conditions
+Baramati,18.1518,74.5815,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.0,13.4,0.217,0,Normal conditions
+Baramati,18.1518,74.5815,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.0,15.4,0.236,0,Normal conditions
+Baramati,18.1518,74.5815,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,17.5,0.165,0,Normal conditions
+Baramati,18.1518,74.5815,2025-08-26,Low,GREEN,Normal Conditions,High,1.8,19.6,0.15,0,Normal conditions
+Hingoli,19.7167,77.15,2025-08-20,Medium,YELLOW,Normal Conditions,High,4.1,5.0,0.23,0,Normal conditions
+Hingoli,19.7167,77.15,2025-08-21,Medium,YELLOW,Normal Conditions,High,1.2,5.0,0.227,0,Normal conditions
+Hingoli,19.7167,77.15,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,5.0,0.213,0,Normal conditions
+Hingoli,19.7167,77.15,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.0,5.0,0.232,0,Normal conditions
+Hingoli,19.7167,77.15,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.0,5.0,0.206,0,Normal conditions
+Hingoli,19.7167,77.15,2025-08-25,Medium,YELLOW,Normal Conditions,High,0.0,5.0,0.207,0,Normal conditions
+Hingoli,19.7167,77.15,2025-08-26,Medium,YELLOW,Normal Conditions,High,3.9,5.0,0.225,0,Normal conditions
+Parbhani,19.2608,76.7701,2025-08-20,Medium,YELLOW,Normal Conditions,High,2.2,5.0,0.236,0,Normal conditions
+Parbhani,19.2608,76.7701,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.4,5.0,0.222,0,Normal conditions
+Parbhani,19.2608,76.7701,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,5.0,0.215,0,Normal conditions
+Parbhani,19.2608,76.7701,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.0,5.0,0.231,0,Normal conditions
+Parbhani,19.2608,76.7701,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.3,5.0,0.229,0,Normal conditions
+Parbhani,19.2608,76.7701,2025-08-25,Medium,YELLOW,Normal Conditions,High,1.2,5.0,0.224,0,Normal conditions
+Parbhani,19.2608,76.7701,2025-08-26,Medium,YELLOW,Normal Conditions,High,13.2,5.0,0.235,0,Normal conditions
+Wardha,20.7453,78.6022,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,24.6,5.0,0.251,0,Normal conditions
+Wardha,20.7453,78.6022,2025-08-21,Medium,YELLOW,Normal Conditions,High,6.1,5.0,0.251,0,Normal conditions
+Wardha,20.7453,78.6022,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,5.0,0.256,0,Normal conditions
+Wardha,20.7453,78.6022,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.3,5.0,0.249,0,Normal conditions
+Wardha,20.7453,78.6022,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.6,5.0,0.228,0,Normal conditions
+Wardha,20.7453,78.6022,2025-08-25,Medium,YELLOW,Normal Conditions,High,7.2,5.0,0.23,0,Normal conditions
+Wardha,20.7453,78.6022,2025-08-26,Medium,YELLOW,Normal Conditions,High,4.8,5.0,0.232,0,Normal conditions
+Phaltan,17.9833,74.4333,2025-08-20,Low,GREEN,Normal Conditions,High,2.1,44.1,0.151,0,Normal conditions
+Phaltan,17.9833,74.4333,2025-08-21,Low,GREEN,High Reservoir Levels,High,0.0,83.1,0.02,0,Reservoir high 83.1%
+Phaltan,17.9833,74.4333,2025-08-22,High,ORANGE,High Reservoir Levels,High,0.0,100.0,0.021,0,Reservoir critical 100.0%
+Phaltan,17.9833,74.4333,2025-08-23,High,ORANGE,High Reservoir Levels,High,0.0,100.0,0.0,0,Reservoir critical 100.0%
+Phaltan,17.9833,74.4333,2025-08-24,High,ORANGE,High Reservoir Levels,High,0.0,100.0,0.0,0,Reservoir critical 100.0%
+Phaltan,17.9833,74.4333,2025-08-25,High,ORANGE,High Reservoir Levels,High,0.0,100.0,0.0,0,Reservoir critical 100.0%
+Phaltan,17.9833,74.4333,2025-08-26,High,ORANGE,High Reservoir Levels,High,0.6,100.0,0.024,0,Reservoir critical 100.0%
+Wai,17.95,73.8833,2025-08-20,Medium,YELLOW,Moderate Rainfall,Medium,48.2,44.1,0.312,0,Moderate rainfall 48.2mm
+Wai,17.95,73.8833,2025-08-21,Low,GREEN,High Reservoir Levels,High,18.9,83.1,0.038,0,Reservoir high 83.1%
+Wai,17.95,73.8833,2025-08-22,High,ORANGE,High Reservoir Levels,High,10.5,100.0,0.032,0,Reservoir critical 100.0%
+Wai,17.95,73.8833,2025-08-23,High,ORANGE,High Reservoir Levels,High,8.0,100.0,0.025,0,Reservoir critical 100.0%
+Wai,17.95,73.8833,2025-08-24,High,ORANGE,High Reservoir Levels,High,8.7,100.0,0.025,0,Reservoir critical 100.0%
+Wai,17.95,73.8833,2025-08-25,High,ORANGE,High Reservoir Levels,High,16.5,100.0,0.028,0,Reservoir critical 100.0%
+Wai,17.95,73.8833,2025-08-26,High,ORANGE,High Reservoir Levels,High,25.2,100.0,0.016,0,Reservoir critical 100.0%
+Mahabaleshwar,17.9167,73.65,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,51.4,44.1,0.239,0,Moderate rainfall 51.4mm
+Mahabaleshwar,17.9167,73.65,2025-08-21,Low,GREEN,High Reservoir Levels,High,15.7,83.1,0.015,0,Reservoir high 83.1%
+Mahabaleshwar,17.9167,73.65,2025-08-22,High,ORANGE,High Reservoir Levels,High,4.5,100.0,0.016,0,Reservoir critical 100.0%
+Mahabaleshwar,17.9167,73.65,2025-08-23,High,ORANGE,High Reservoir Levels,High,4.5,100.0,0.018,0,Reservoir critical 100.0%
+Mahabaleshwar,17.9167,73.65,2025-08-24,High,ORANGE,High Reservoir Levels,High,9.6,100.0,0.018,0,Reservoir critical 100.0%
+Mahabaleshwar,17.9167,73.65,2025-08-25,High,ORANGE,High Reservoir Levels,High,12.6,100.0,0.023,0,Reservoir critical 100.0%
+Mahabaleshwar,17.9167,73.65,2025-08-26,High,ORANGE,High Reservoir Levels,High,21.9,100.0,0.016,0,Reservoir critical 100.0%
+Panchgani,17.9167,73.8,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,51.4,44.1,0.244,0,Moderate rainfall 51.4mm
+Panchgani,17.9167,73.8,2025-08-21,Low,GREEN,High Reservoir Levels,High,15.7,83.1,0.02,0,Reservoir high 83.1%
+Panchgani,17.9167,73.8,2025-08-22,High,ORANGE,High Reservoir Levels,High,4.5,100.0,0.016,0,Reservoir critical 100.0%
+Panchgani,17.9167,73.8,2025-08-23,High,ORANGE,High Reservoir Levels,High,4.5,100.0,0.018,0,Reservoir critical 100.0%
+Panchgani,17.9167,73.8,2025-08-24,High,ORANGE,High Reservoir Levels,High,9.6,100.0,0.018,0,Reservoir critical 100.0%
+Panchgani,17.9167,73.8,2025-08-25,High,ORANGE,High Reservoir Levels,High,12.6,100.0,0.023,0,Reservoir critical 100.0%
+Panchgani,17.9167,73.8,2025-08-26,High,ORANGE,High Reservoir Levels,High,21.9,100.0,0.016,0,Reservoir critical 100.0%
+Lonavala,18.75,73.4167,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,58.0,7.1,0.248,0,Moderate rainfall 58.0mm
+Lonavala,18.75,73.4167,2025-08-21,Medium,YELLOW,Normal Conditions,High,10.1,9.2,0.219,0,Normal conditions
+Lonavala,18.75,73.4167,2025-08-22,Medium,YELLOW,Normal Conditions,High,4.7,11.3,0.213,0,Normal conditions
+Lonavala,18.75,73.4167,2025-08-23,Medium,YELLOW,Normal Conditions,High,6.7,13.4,0.207,0,Normal conditions
+Lonavala,18.75,73.4167,2025-08-24,Medium,YELLOW,Normal Conditions,High,6.6,15.4,0.209,0,Normal conditions
+Lonavala,18.75,73.4167,2025-08-25,Low,GREEN,Normal Conditions,High,18.3,17.5,0.171,0,Normal conditions
+Lonavala,18.75,73.4167,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,52.8,19.6,0.219,0,Moderate rainfall 52.8mm
+Khandala,18.7333,73.3833,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,58.0,7.1,0.248,0,Moderate rainfall 58.0mm
+Khandala,18.7333,73.3833,2025-08-21,Medium,YELLOW,Normal Conditions,High,10.1,9.2,0.219,0,Normal conditions
+Khandala,18.7333,73.3833,2025-08-22,Medium,YELLOW,Normal Conditions,High,4.7,11.3,0.209,0,Normal conditions
+Khandala,18.7333,73.3833,2025-08-23,Medium,YELLOW,Normal Conditions,High,6.7,13.4,0.207,0,Normal conditions
+Khandala,18.7333,73.3833,2025-08-24,Medium,YELLOW,Normal Conditions,High,6.6,15.4,0.209,0,Normal conditions
+Khandala,18.7333,73.3833,2025-08-25,Low,GREEN,Normal Conditions,High,18.3,17.5,0.171,0,Normal conditions
+Khandala,18.7333,73.3833,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,52.8,19.6,0.219,0,Moderate rainfall 52.8mm
+Talegaon,18.7333,73.6833,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,57.1,7.1,0.224,0,Moderate rainfall 57.1mm
+Talegaon,18.7333,73.6833,2025-08-21,Medium,YELLOW,Normal Conditions,High,3.0,9.2,0.204,0,Normal conditions
+Talegaon,18.7333,73.6833,2025-08-22,Low,GREEN,Normal Conditions,High,0.1,11.3,0.194,0,Normal conditions
+Talegaon,18.7333,73.6833,2025-08-23,Low,GREEN,Normal Conditions,High,2.1,13.4,0.182,0,Normal conditions
+Talegaon,18.7333,73.6833,2025-08-24,Low,GREEN,Normal Conditions,High,0.6,15.4,0.174,0,Normal conditions
+Talegaon,18.7333,73.6833,2025-08-25,Low,GREEN,Normal Conditions,High,6.3,17.5,0.152,0,Normal conditions
+Talegaon,18.7333,73.6833,2025-08-26,Low,GREEN,Moderate Rainfall,High,35.1,19.6,0.14,0,Normal conditions
+Chakan,18.7667,73.8667,2025-08-20,Medium,YELLOW,Normal Conditions,High,17.5,7.1,0.206,0,Normal conditions
+Chakan,18.7667,73.8667,2025-08-21,Low,GREEN,Normal Conditions,High,0.6,9.2,0.189,0,Normal conditions
+Chakan,18.7667,73.8667,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,11.3,0.199,0,Normal conditions
+Chakan,18.7667,73.8667,2025-08-23,Low,GREEN,Normal Conditions,High,0.3,13.4,0.189,0,Normal conditions
+Chakan,18.7667,73.8667,2025-08-24,Low,GREEN,Normal Conditions,High,0.3,15.4,0.194,0,Normal conditions
+Chakan,18.7667,73.8667,2025-08-25,Low,GREEN,Normal Conditions,High,2.7,17.5,0.146,0,Normal conditions
+Chakan,18.7667,73.8667,2025-08-26,Low,GREEN,Normal Conditions,High,17.4,19.6,0.131,0,Normal conditions
+Dehu,18.7167,73.7667,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,34.9,7.1,0.254,0,Normal conditions
+Dehu,18.7167,73.7667,2025-08-21,Low,GREEN,Normal Conditions,High,0.4,9.2,0.189,0,Normal conditions
+Dehu,18.7167,73.7667,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,11.3,0.194,0,Normal conditions
+Dehu,18.7167,73.7667,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.6,13.4,0.202,0,Normal conditions
+Dehu,18.7167,73.7667,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,15.4,0.174,0,Normal conditions
+Dehu,18.7167,73.7667,2025-08-25,Low,GREEN,Normal Conditions,High,1.8,17.5,0.142,0,Normal conditions
+Dehu,18.7167,73.7667,2025-08-26,Low,GREEN,Moderate Rainfall,High,24.6,19.6,0.14,0,Normal conditions
+Alandi,18.6833,73.8833,2025-08-20,Medium,YELLOW,Normal Conditions,High,14.4,7.1,0.206,0,Normal conditions
+Alandi,18.6833,73.8833,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.0,9.2,0.23,0,Normal conditions
+Alandi,18.6833,73.8833,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.228,0,Normal conditions
+Alandi,18.6833,73.8833,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.3,13.4,0.226,0,Normal conditions
+Alandi,18.6833,73.8833,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,15.4,0.198,0,Normal conditions
+Alandi,18.6833,73.8833,2025-08-25,Low,GREEN,Normal Conditions,High,0.6,17.5,0.16,0,Normal conditions
+Alandi,18.6833,73.8833,2025-08-26,Low,GREEN,Normal Conditions,High,7.5,19.6,0.115,0,Normal conditions
+Saswad,18.35,73.9833,2025-08-20,Medium,YELLOW,Normal Conditions,High,13.0,7.1,0.236,0,Normal conditions
+Saswad,18.35,73.9833,2025-08-21,Low,GREEN,Normal Conditions,High,0.0,9.2,0.182,0,Normal conditions
+Saswad,18.35,73.9833,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,11.3,0.195,0,Normal conditions
+Saswad,18.35,73.9833,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,13.4,0.18,0,Normal conditions
+Saswad,18.35,73.9833,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,15.4,0.189,0,Normal conditions
+Saswad,18.35,73.9833,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,17.5,0.135,0,Normal conditions
+Saswad,18.35,73.9833,2025-08-26,Low,GREEN,Normal Conditions,High,1.2,19.6,0.129,0,Normal conditions
+Bhor,18.15,73.8333,2025-08-20,Medium,YELLOW,Normal Conditions,High,5.8,7.1,0.223,0,Normal conditions
+Bhor,18.15,73.8333,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.0,9.2,0.206,0,Normal conditions
+Bhor,18.15,73.8333,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,11.3,0.2,0,Normal conditions
+Bhor,18.15,73.8333,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,13.4,0.192,0,Normal conditions
+Bhor,18.15,73.8333,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,15.4,0.192,0,Normal conditions
+Bhor,18.15,73.8333,2025-08-25,Low,GREEN,Normal Conditions,High,0.3,17.5,0.152,0,Normal conditions
+Bhor,18.15,73.8333,2025-08-26,Low,GREEN,Normal Conditions,High,1.2,19.6,0.115,0,Normal conditions
+Khed,18.0333,73.4,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,43.5,7.1,0.248,0,Moderate rainfall 43.5mm
+Khed,18.0333,73.4,2025-08-21,Medium,YELLOW,Normal Conditions,High,11.4,9.2,0.226,0,Normal conditions
+Khed,18.0333,73.4,2025-08-22,Medium,YELLOW,Normal Conditions,High,5.6,11.3,0.213,0,Normal conditions
+Khed,18.0333,73.4,2025-08-23,Medium,YELLOW,Normal Conditions,High,6.8,13.4,0.208,0,Normal conditions
+Khed,18.0333,73.4,2025-08-24,Medium,YELLOW,Normal Conditions,High,6.6,15.4,0.207,0,Normal conditions
+Khed,18.0333,73.4,2025-08-25,Low,GREEN,Normal Conditions,High,12.9,17.5,0.161,0,Normal conditions
+Khed,18.0333,73.4,2025-08-26,Low,GREEN,Moderate Rainfall,High,39.3,19.6,0.177,0,Normal conditions
+Rajgurunagar,18.8667,73.7667,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,37.3,7.1,0.229,0,Normal conditions
+Rajgurunagar,18.8667,73.7667,2025-08-21,Low,GREEN,Normal Conditions,High,1.2,9.2,0.197,0,Normal conditions
+Rajgurunagar,18.8667,73.7667,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,11.3,0.178,0,Normal conditions
+Rajgurunagar,18.8667,73.7667,2025-08-23,Medium,YELLOW,Normal Conditions,High,2.5,13.4,0.207,0,Normal conditions
+Rajgurunagar,18.8667,73.7667,2025-08-24,Low,GREEN,Normal Conditions,High,0.3,15.4,0.192,0,Normal conditions
+Rajgurunagar,18.8667,73.7667,2025-08-25,Low,GREEN,Normal Conditions,High,3.0,17.5,0.15,0,Normal conditions
+Rajgurunagar,18.8667,73.7667,2025-08-26,Low,GREEN,Normal Conditions,High,16.5,19.6,0.121,0,Normal conditions
+Ambegaon,19.0,73.7167,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,37.3,7.1,0.229,0,Normal conditions
+Ambegaon,19.0,73.7167,2025-08-21,Medium,YELLOW,Normal Conditions,High,1.2,9.2,0.202,0,Normal conditions
+Ambegaon,19.0,73.7167,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,11.3,0.178,0,Normal conditions
+Ambegaon,19.0,73.7167,2025-08-23,Medium,YELLOW,Normal Conditions,High,2.5,13.4,0.207,0,Normal conditions
+Ambegaon,19.0,73.7167,2025-08-24,Low,GREEN,Normal Conditions,High,0.3,15.4,0.192,0,Normal conditions
+Ambegaon,19.0,73.7167,2025-08-25,Low,GREEN,Normal Conditions,High,3.0,17.5,0.15,0,Normal conditions
+Ambegaon,19.0,73.7167,2025-08-26,Low,GREEN,Normal Conditions,High,16.5,19.6,0.121,0,Normal conditions
+Junnar,19.2,73.8833,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,21.5,7.1,0.254,0,Normal conditions
+Junnar,19.2,73.8833,2025-08-21,Low,GREEN,Normal Conditions,High,0.0,9.2,0.195,0,Normal conditions
+Junnar,19.2,73.8833,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.205,0,Normal conditions
+Junnar,19.2,73.8833,2025-08-23,Low,GREEN,Normal Conditions,High,0.9,13.4,0.191,0,Normal conditions
+Junnar,19.2,73.8833,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.0,15.4,0.204,0,Normal conditions
+Junnar,19.2,73.8833,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,17.5,0.148,0,Normal conditions
+Junnar,19.2,73.8833,2025-08-26,Low,GREEN,Moderate Rainfall,High,25.5,19.6,0.14,0,Normal conditions
+Narayangaon,19.1,73.9833,2025-08-20,Low,GREEN,Normal Conditions,High,6.1,7.1,0.2,0,Normal conditions
+Narayangaon,19.1,73.9833,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.0,9.2,0.212,0,Normal conditions
+Narayangaon,19.1,73.9833,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.225,0,Normal conditions
+Narayangaon,19.1,73.9833,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,13.4,0.196,0,Normal conditions
+Narayangaon,19.1,73.9833,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,15.4,0.195,0,Normal conditions
+Narayangaon,19.1,73.9833,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,17.5,0.172,0,Normal conditions
+Narayangaon,19.1,73.9833,2025-08-26,Low,GREEN,Normal Conditions,High,1.8,19.6,0.125,0,Normal conditions
+Manchar,19.0333,73.9167,2025-08-20,Medium,YELLOW,Normal Conditions,High,8.2,7.1,0.225,0,Normal conditions
+Manchar,19.0333,73.9167,2025-08-21,Low,GREEN,Normal Conditions,High,0.0,9.2,0.191,0,Normal conditions
+Manchar,19.0333,73.9167,2025-08-22,Low,GREEN,Normal Conditions,High,0.0,11.3,0.193,0,Normal conditions
+Manchar,19.0333,73.9167,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,13.4,0.187,0,Normal conditions
+Manchar,19.0333,73.9167,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.3,15.4,0.208,0,Normal conditions
+Manchar,19.0333,73.9167,2025-08-25,Low,GREEN,Normal Conditions,High,0.9,17.5,0.141,0,Normal conditions
+Manchar,19.0333,73.9167,2025-08-26,Low,GREEN,Normal Conditions,High,4.2,19.6,0.129,0,Normal conditions
+Ghodegaon,18.6667,73.7667,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,23.6,7.1,0.259,0,Normal conditions
+Ghodegaon,18.6667,73.7667,2025-08-21,Low,GREEN,Normal Conditions,High,0.0,9.2,0.196,0,Normal conditions
+Ghodegaon,18.6667,73.7667,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.208,0,Normal conditions
+Ghodegaon,18.6667,73.7667,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,13.4,0.198,0,Normal conditions
+Ghodegaon,18.6667,73.7667,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,15.4,0.199,0,Normal conditions
+Ghodegaon,18.6667,73.7667,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,17.5,0.152,0,Normal conditions
+Ghodegaon,18.6667,73.7667,2025-08-26,Low,GREEN,Normal Conditions,High,10.5,19.6,0.115,0,Normal conditions
+Shirur,18.8167,74.3667,2025-08-20,Low,GREEN,Normal Conditions,High,3.7,7.1,0.2,0,Normal conditions
+Shirur,18.8167,74.3667,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.2,9.2,0.223,0,Normal conditions
+Shirur,18.8167,74.3667,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.247,0,Normal conditions
+Shirur,18.8167,74.3667,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.0,13.4,0.22,0,Normal conditions
+Shirur,18.8167,74.3667,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.0,15.4,0.22,0,Normal conditions
+Shirur,18.8167,74.3667,2025-08-25,Low,GREEN,Normal Conditions,High,0.3,17.5,0.182,0,Normal conditions
+Shirur,18.8167,74.3667,2025-08-26,Low,GREEN,Normal Conditions,High,5.7,19.6,0.148,0,Normal conditions
+Daund,18.4667,74.5833,2025-08-20,Medium,YELLOW,Normal Conditions,High,1.5,7.1,0.237,0,Normal conditions
+Daund,18.4667,74.5833,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.0,9.2,0.225,0,Normal conditions
+Daund,18.4667,74.5833,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.213,0,Normal conditions
+Daund,18.4667,74.5833,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.0,13.4,0.236,0,Normal conditions
+Daund,18.4667,74.5833,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.0,15.4,0.231,0,Normal conditions
+Daund,18.4667,74.5833,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,17.5,0.16,0,Normal conditions
+Daund,18.4667,74.5833,2025-08-26,Low,GREEN,Normal Conditions,High,1.2,19.6,0.152,0,Normal conditions
+Indapur,18.1167,75.0167,2025-08-20,Medium,YELLOW,Normal Conditions,High,1.0,7.1,0.209,0,Normal conditions
+Indapur,18.1167,75.0167,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.2,9.2,0.214,0,Normal conditions
+Indapur,18.1167,75.0167,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.213,0,Normal conditions
+Indapur,18.1167,75.0167,2025-08-23,Medium,YELLOW,Normal Conditions,High,0.0,13.4,0.216,0,Normal conditions
+Indapur,18.1167,75.0167,2025-08-24,Medium,YELLOW,Normal Conditions,High,0.0,15.4,0.209,0,Normal conditions
+Indapur,18.1167,75.0167,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,17.5,0.15,0,Normal conditions
+Indapur,18.1167,75.0167,2025-08-26,Low,GREEN,Normal Conditions,High,3.0,19.6,0.161,0,Normal conditions
+Purandar,18.3,73.9833,2025-08-20,Medium,YELLOW,Normal Conditions,High,9.0,7.1,0.223,0,Normal conditions
+Purandar,18.3,73.9833,2025-08-21,Medium,YELLOW,Normal Conditions,High,1.8,9.2,0.201,0,Normal conditions
+Purandar,18.3,73.9833,2025-08-22,Low,GREEN,Normal Conditions,High,0.2,11.3,0.189,0,Normal conditions
+Purandar,18.3,73.9833,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,13.4,0.181,0,Normal conditions
+Purandar,18.3,73.9833,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,15.4,0.182,0,Normal conditions
+Purandar,18.3,73.9833,2025-08-25,Low,GREEN,Normal Conditions,High,0.6,17.5,0.134,0,Normal conditions
+Purandar,18.3,73.9833,2025-08-26,Low,GREEN,Normal Conditions,High,2.4,19.6,0.115,0,Normal conditions
+Velhe,18.2833,73.6167,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,76.8,7.1,0.243,0,Moderate rainfall 76.8mm
+Velhe,18.2833,73.6167,2025-08-21,Medium,YELLOW,Normal Conditions,High,14.6,9.2,0.21,0,Normal conditions
+Velhe,18.2833,73.6167,2025-08-22,Medium,YELLOW,Normal Conditions,High,5.5,11.3,0.204,0,Normal conditions
+Velhe,18.2833,73.6167,2025-08-23,Low,GREEN,Normal Conditions,High,9.9,13.4,0.189,0,Normal conditions
+Velhe,18.2833,73.6167,2025-08-24,Low,GREEN,Normal Conditions,High,10.5,15.4,0.192,0,Normal conditions
+Velhe,18.2833,73.6167,2025-08-25,Low,GREEN,Normal Conditions,High,19.5,17.5,0.164,0,Normal conditions
+Velhe,18.2833,73.6167,2025-08-26,Low,GREEN,Moderate Rainfall,High,39.0,19.6,0.158,0,Normal conditions
+Mulshi,18.5333,73.5,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,58.0,9.9,0.248,0,Moderate rainfall 58.0mm
+Mulshi,18.5333,73.5,2025-08-21,Medium,YELLOW,Normal Conditions,High,10.1,14.7,0.219,0,Normal conditions
+Mulshi,18.5333,73.5,2025-08-22,Low,GREEN,Normal Conditions,High,4.7,19.6,0.143,0,Normal conditions
+Mulshi,18.5333,73.5,2025-08-23,Low,GREEN,Normal Conditions,High,6.7,24.5,0.156,0,Normal conditions
+Mulshi,18.5333,73.5,2025-08-24,Low,GREEN,Normal Conditions,High,6.6,29.4,0.093,0,Normal conditions
+Mulshi,18.5333,73.5,2025-08-25,Low,GREEN,Normal Conditions,High,18.3,34.2,0.13,0,Normal conditions
+Mulshi,18.5333,73.5,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,52.8,39.1,0.221,0,Moderate rainfall 52.8mm
+Haveli,18.4167,73.8167,2025-08-20,Medium,YELLOW,Normal Conditions,High,15.8,7.1,0.213,0,Normal conditions
+Haveli,18.4167,73.8167,2025-08-21,Medium,YELLOW,Normal Conditions,High,0.0,9.2,0.206,0,Normal conditions
+Haveli,18.4167,73.8167,2025-08-22,Medium,YELLOW,Normal Conditions,High,0.0,11.3,0.205,0,Normal conditions
+Haveli,18.4167,73.8167,2025-08-23,Low,GREEN,Normal Conditions,High,0.0,13.4,0.188,0,Normal conditions
+Haveli,18.4167,73.8167,2025-08-24,Low,GREEN,Normal Conditions,High,0.0,15.4,0.18,0,Normal conditions
+Haveli,18.4167,73.8167,2025-08-25,Low,GREEN,Normal Conditions,High,0.0,17.5,0.149,0,Normal conditions
+Haveli,18.4167,73.8167,2025-08-26,Low,GREEN,Normal Conditions,High,2.1,19.6,0.114,0,Normal conditions
+Maval,18.7167,73.5333,2025-08-20,Medium,YELLOW,Heavy Rainfall,High,50.5,7.1,0.231,0,Moderate rainfall 50.5mm
+Maval,18.7167,73.5333,2025-08-21,Medium,YELLOW,Normal Conditions,High,2.1,9.2,0.213,0,Normal conditions
+Maval,18.7167,73.5333,2025-08-22,Low,GREEN,Normal Conditions,High,0.2,11.3,0.171,0,Normal conditions
+Maval,18.7167,73.5333,2025-08-23,Low,GREEN,Normal Conditions,High,4.9,13.4,0.185,0,Normal conditions
+Maval,18.7167,73.5333,2025-08-24,Low,GREEN,Normal Conditions,High,3.3,15.4,0.182,0,Normal conditions
+Maval,18.7167,73.5333,2025-08-25,Low,GREEN,Normal Conditions,High,4.2,17.5,0.133,0,Normal conditions
+Maval,18.7167,73.5333,2025-08-26,Low,GREEN,Moderate Rainfall,High,20.4,19.6,0.14,0,Normal conditions
+Kankavli,16.2667,73.7,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,27.8,5.3,0.265,0,Normal conditions
+Kankavli,16.2667,73.7,2025-08-21,Medium,YELLOW,Normal Conditions,High,8.1,5.6,0.213,0,Normal conditions
+Kankavli,16.2667,73.7,2025-08-22,Medium,YELLOW,Normal Conditions,High,3.7,6.0,0.215,0,Normal conditions
+Kankavli,16.2667,73.7,2025-08-23,Medium,YELLOW,Normal Conditions,High,3.1,6.3,0.231,0,Normal conditions
+Kankavli,16.2667,73.7,2025-08-24,Medium,YELLOW,Normal Conditions,High,2.7,6.6,0.223,0,Normal conditions
+Kankavli,16.2667,73.7,2025-08-25,Medium,YELLOW,Normal Conditions,High,4.8,6.9,0.215,0,Normal conditions
+Kankavli,16.2667,73.7,2025-08-26,Medium,YELLOW,Moderate Rainfall,High,44.1,7.2,0.241,0,Moderate rainfall 44.1mm
+Kudal,16.0167,73.6833,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,23.6,5.3,0.281,0,Normal conditions
+Kudal,16.0167,73.6833,2025-08-21,Medium,YELLOW,Normal Conditions,High,10.8,5.6,0.238,0,Normal conditions
+Kudal,16.0167,73.6833,2025-08-22,Medium,YELLOW,Normal Conditions,High,5.2,6.0,0.236,0,Normal conditions
+Kudal,16.0167,73.6833,2025-08-23,Medium,YELLOW,Normal Conditions,High,3.1,6.3,0.27,0,Normal conditions
+Kudal,16.0167,73.6833,2025-08-24,Medium,YELLOW,Normal Conditions,High,3.6,6.6,0.244,0,Normal conditions
+Kudal,16.0167,73.6833,2025-08-25,Medium,YELLOW,Normal Conditions,High,7.5,6.9,0.267,0,Normal conditions
+Kudal,16.0167,73.6833,2025-08-26,Medium,YELLOW,Moderate Rainfall,Low,48.3,7.2,0.315,0,Moderate rainfall 48.3mm
+Sawantwadi,15.9,73.8167,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,39.7,5.3,0.261,0,Normal conditions
+Sawantwadi,15.9,73.8167,2025-08-21,Medium,YELLOW,Normal Conditions,High,9.6,5.6,0.213,0,Normal conditions
+Sawantwadi,15.9,73.8167,2025-08-22,Medium,YELLOW,Normal Conditions,High,3.5,6.0,0.213,0,Normal conditions
+Sawantwadi,15.9,73.8167,2025-08-23,Medium,YELLOW,Normal Conditions,High,3.0,6.3,0.212,0,Normal conditions
+Sawantwadi,15.9,73.8167,2025-08-24,Medium,YELLOW,Normal Conditions,High,4.2,6.6,0.215,0,Normal conditions
+Sawantwadi,15.9,73.8167,2025-08-25,Medium,YELLOW,Normal Conditions,High,5.4,6.9,0.211,0,Normal conditions
+Sawantwadi,15.9,73.8167,2025-08-26,Medium,YELLOW,Moderate Rainfall,High,40.8,7.2,0.238,0,Moderate rainfall 40.8mm
+Dodamarg,15.7333,73.8167,2025-08-20,Medium,YELLOW,Heavy Rainfall,Medium,56.8,5.3,0.34,0,Moderate rainfall 56.8mm
+Dodamarg,15.7333,73.8167,2025-08-21,Medium,YELLOW,Normal Conditions,High,17.3,5.6,0.24,0,Normal conditions
+Dodamarg,15.7333,73.8167,2025-08-22,Medium,YELLOW,Normal Conditions,High,5.0,6.0,0.231,0,Normal conditions
+Dodamarg,15.7333,73.8167,2025-08-23,Medium,YELLOW,Normal Conditions,High,6.3,6.3,0.24,0,Normal conditions
+Dodamarg,15.7333,73.8167,2025-08-24,Medium,YELLOW,Normal Conditions,High,9.3,6.6,0.238,0,Normal conditions
+Dodamarg,15.7333,73.8167,2025-08-25,Medium,YELLOW,Normal Conditions,High,12.3,6.9,0.228,0,Normal conditions
+Dodamarg,15.7333,73.8167,2025-08-26,Medium,YELLOW,Heavy Rainfall,Low,56.7,7.2,0.304,0,Moderate rainfall 56.7mm
+Vengurla,15.8667,73.6167,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,43.0,5.3,0.259,0,Moderate rainfall 43.0mm
+Vengurla,15.8667,73.6167,2025-08-21,Medium,YELLOW,Normal Conditions,High,12.3,5.6,0.249,0,Normal conditions
+Vengurla,15.8667,73.6167,2025-08-22,Medium,YELLOW,Normal Conditions,High,5.3,6.0,0.25,0,Normal conditions
+Vengurla,15.8667,73.6167,2025-08-23,Medium,YELLOW,Normal Conditions,Medium,3.8,6.3,0.307,0,Normal conditions
+Vengurla,15.8667,73.6167,2025-08-24,Medium,YELLOW,Normal Conditions,High,5.1,6.6,0.275,0,Normal conditions
+Vengurla,15.8667,73.6167,2025-08-25,Medium,YELLOW,Normal Conditions,High,8.7,6.9,0.295,0,Normal conditions
+Vengurla,15.8667,73.6167,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,50.4,7.2,0.298,0,Moderate rainfall 50.4mm
+Malvan,16.0667,73.4667,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,37.4,5.3,0.253,0,Normal conditions
+Malvan,16.0667,73.4667,2025-08-21,Medium,YELLOW,Normal Conditions,High,11.3,5.6,0.24,0,Normal conditions
+Malvan,16.0667,73.4667,2025-08-22,Medium,YELLOW,Normal Conditions,High,4.8,6.0,0.277,0,Normal conditions
+Malvan,16.0667,73.4667,2025-08-23,Medium,YELLOW,Normal Conditions,Medium,4.7,6.3,0.307,0,Normal conditions
+Malvan,16.0667,73.4667,2025-08-24,Medium,YELLOW,Normal Conditions,High,2.7,6.6,0.267,0,Normal conditions
+Malvan,16.0667,73.4667,2025-08-25,Medium,YELLOW,Normal Conditions,High,5.7,6.9,0.27,0,Normal conditions
+Malvan,16.0667,73.4667,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,51.3,7.2,0.283,0,Moderate rainfall 51.3mm
+Devgad,16.3833,73.3833,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,35.0,5.3,0.26,0,Normal conditions
+Devgad,16.3833,73.3833,2025-08-21,Medium,YELLOW,Normal Conditions,High,11.6,5.6,0.227,0,Normal conditions
+Devgad,16.3833,73.3833,2025-08-22,Medium,YELLOW,Normal Conditions,High,5.0,6.0,0.288,0,Normal conditions
+Devgad,16.3833,73.3833,2025-08-23,Medium,YELLOW,Normal Conditions,High,6.1,6.3,0.265,0,Normal conditions
+Devgad,16.3833,73.3833,2025-08-24,Medium,YELLOW,Normal Conditions,High,4.5,6.6,0.246,0,Normal conditions
+Devgad,16.3833,73.3833,2025-08-25,Medium,YELLOW,Normal Conditions,High,5.4,6.9,0.246,0,Normal conditions
+Devgad,16.3833,73.3833,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,52.2,7.2,0.274,0,Moderate rainfall 52.2mm
+Vaibhavwadi,16.5167,73.7333,2025-08-20,Medium,YELLOW,Moderate Rainfall,High,25.7,5.3,0.287,0,Normal conditions
+Vaibhavwadi,16.5167,73.7333,2025-08-21,Medium,YELLOW,Normal Conditions,High,9.2,5.6,0.22,0,Normal conditions
+Vaibhavwadi,16.5167,73.7333,2025-08-22,Medium,YELLOW,Normal Conditions,High,4.1,6.0,0.22,0,Normal conditions
+Vaibhavwadi,16.5167,73.7333,2025-08-23,Medium,YELLOW,Normal Conditions,High,3.3,6.3,0.227,0,Normal conditions
+Vaibhavwadi,16.5167,73.7333,2025-08-24,Medium,YELLOW,Normal Conditions,High,3.3,6.6,0.227,0,Normal conditions
+Vaibhavwadi,16.5167,73.7333,2025-08-25,Medium,YELLOW,Normal Conditions,High,6.0,6.9,0.213,0,Normal conditions
+Vaibhavwadi,16.5167,73.7333,2025-08-26,Medium,YELLOW,Heavy Rainfall,High,50.7,7.2,0.244,0,Moderate rainfall 50.7mm

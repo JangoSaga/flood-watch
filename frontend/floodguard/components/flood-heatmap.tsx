@@ -18,11 +18,12 @@ interface HeatmapData {
   damage?: number
   prediction: number
   precipitation: number
+  reservoirFill?: number
 }
 
 interface FloodHeatmapProps {
   data: HeatmapData[]
-  type?: 'flood' | 'rainfall'
+  type?: 'flood' | 'rainfall' | 'reservoir'
 }
 
 export default function FloodHeatmap({ data, type = 'flood' }: FloodHeatmapProps) {

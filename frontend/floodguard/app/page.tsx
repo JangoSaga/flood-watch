@@ -78,8 +78,8 @@ export default function HomePage() {
                 Advanced ML-Powered Analysis
               </h2>
               <p className="text-gray-600 mb-6">
-                Our system analyzes weather patterns, precipitation data, temperature, humidity, 
-                and historical flood data to provide accurate predictions for over 200 cities across India.
+                Our system analyzes weather patterns, precipitation data, temperature, humidity,
+                and historical flood data to provide accurate predictions for 56 cities across Maharashtra.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center">
@@ -90,10 +90,7 @@ export default function HomePage() {
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                   <span className="text-gray-700">Machine learning flood classification</span>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">Damage assessment and cost analysis</span>
-                </div>
+                
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
                   <span className="text-gray-700">Emergency response planning</span>
@@ -104,7 +101,7 @@ export default function HomePage() {
               <h3 className="text-2xl font-bold mb-4">System Coverage</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold">200+</div>
+                  <div className="text-3xl font-bold">56</div>
                   <div className="text-blue-100">Cities Covered</div>
                 </div>
                 <div className="text-center">
@@ -116,7 +113,7 @@ export default function HomePage() {
                   <div className="text-blue-100">Accuracy</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold">15</div>
+                  <div className="text-3xl font-bold">7</div>
                   <div className="text-blue-100">Day Forecast</div>
                 </div>
               </div>

@@ -22,6 +22,8 @@ interface PlotData {
   lon: number
   precipitation: number
   prediction: number
+  riskCategory?: string
+  probability?: number
 }
 
 interface FloodPredictionMapProps {

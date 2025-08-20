@@ -8,12 +8,16 @@ interface MapData {
   lon: number;
   precipitation?: number;
   prediction?: number;
+  riskCategory?: string;
+  probability?: number; // Flood_Probability in [0,1]
+  explanation?: string;
   damage?: number;
+  reservoirFill?: number; // percentage 0..100
 }
 
 interface MapComponentProps {
   data: MapData[];
-  type: "prediction" | "damage" | "flood" | "rainfall";
+  type: "prediction" | "damage" | "flood" | "rainfall" | "reservoir";
 }
 
 export default function MapComponent({ data, type }: MapComponentProps) {
@@ -39,7 +43,7 @@ export default function MapComponent({ data, type }: MapComponentProps) {
 
     // Dynamically import Leaflet only on client side
     import("leaflet")
-      .then((mod) => {
+      .then(async (mod) => {
         const L = (mod as any).default || (mod as any);
 
         // Fix for default markers in Next.js
@@ -91,14 +95,15 @@ export default function MapComponent({ data, type }: MapComponentProps) {
       return;
 
     import("leaflet")
-      .then((mod) => {
+      .then(async (mod) => {
         const L = (mod as any).default || (mod as any);
-        // Clear existing layers
+        // Clear existing layers (markers/circles)
         mapInstanceRef.current.eachLayer((layer: any) => {
           if (layer instanceof L.Marker || layer instanceof L.Circle) {
             mapInstanceRef.current.removeLayer(layer);
           }
         });
+        // No heat layer used for rainfall; only circles with popups
 
         addDataToMap(L, mapInstanceRef.current, data, type);
       })
@@ -108,6 +113,15 @@ export default function MapComponent({ data, type }: MapComponentProps) {
   }, [data, type]);
 
   const addDataToMap = (L: any, map: any, data: MapData[], type: string) => {
+    if (type === "rainfall") {
+      // Circles with popups for rainfall visualization
+      data.forEach((item) => addRainfallPopupCircle(L, map, item, data));
+      return;
+    }
+    if (type === "reservoir") {
+      data.forEach((item) => addReservoirCircle(L, map, item, data));
+      return;
+    }
     data.forEach((item) => {
       if (type === "prediction") {
         addPredictionMarker(L, map, item);
@@ -119,8 +133,85 @@ export default function MapComponent({ data, type }: MapComponentProps) {
     });
   };
 
+  // Heatmap rendering removed; rainfall uses circles only
+
+  const addRainfallPopupCircle = (
+    L: any,
+    map: any,
+    item: MapData,
+    allData: MapData[]
+  ) => {
+    const maxPrec = Math.max(...allData.map((d) => d.precipitation || 0), 0);
+    const intensity = maxPrec > 0 ? (item.precipitation || 0) / maxPrec : 0;
+    const color = intensity > 0.6 ? "#2563eb" : "#60a5fa";
+
+    // Linear radius scaling: 8km to 45km based on intensity [0..1]
+    const minRadius = 8000; // meters
+    const maxRadius = 45000; // meters
+    const radius = minRadius + intensity * (maxRadius - minRadius);
+
+    L.circle([item.lat, item.lon], {
+      color,
+      fillColor: color,
+      fillOpacity: 0.7,
+      opacity: 0.7,
+      radius,
+      weight: 1,
+    })
+      .bindPopup(
+        `
+        <div style="padding: 8px;">
+          <h3 style="font-weight: bold; font-size: 16px; margin-bottom: 4px;">${
+            item.city
+          }</h3>
+          <p style="font-size: 14px; margin: 2px 0;"><strong>Precipitation:</strong> ${(
+            item.precipitation || 0
+          ).toFixed(1)}mm</p>
+          ${
+            item.explanation
+              ? `<p style=\"font-size: 14px; margin: 2px 0;\"><strong>Explanation:</strong> ${item.explanation}</p>`
+              : ""
+          }
+          <p style="font-size: 14px; margin: 2px 0;"><strong>Coordinates:</strong> ${item.lat.toFixed(
+            4
+          )}, ${item.lon.toFixed(4)}</p>
+        </div>
+        `
+      )
+      .addTo(map);
+  };
+
+  const addReservoirCircle = (
+    L: any,
+    map: any,
+    item: MapData,
+    allData: MapData[]
+  ) => {
+    // Reuse addHeatmapCircle with type "reservoir"
+    addHeatmapCircle(L, map, item, "reservoir", allData);
+  };
+
   const addPredictionMarker = (L: any, map: any, item: MapData) => {
-    const isHighRisk = item.prediction === 1;
+    const categoryRaw = (item.riskCategory || "").toString();
+    const category = categoryRaw.trim().toLowerCase();
+
+    const colorByCategory = (cat: string) => {
+      switch (cat) {
+        case "critical":
+          return "#991b1b"; // dark red
+        case "high":
+          return "#ef4444"; // red
+        case "medium":
+          return "#f59e0b"; // amber
+        case "low":
+        default:
+          return "#22c55e"; // green
+      }
+    };
+
+    const displayCategory =
+      categoryRaw || (item.prediction === 1 ? "High" : "Low");
+    const color = colorByCategory(category);
 
     const icon = L.divIcon({
       className: "custom-marker",
@@ -128,7 +219,7 @@ export default function MapComponent({ data, type }: MapComponentProps) {
 				width: 12px;
 				height: 12px;
 				border-radius: 50%;
-				background-color: ${isHighRisk ? "#ef4444" : "#22c55e"};
+				background-color: ${color};
 				border: 2px solid white;
 				box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 			"></div>`,
@@ -136,27 +227,27 @@ export default function MapComponent({ data, type }: MapComponentProps) {
       iconAnchor: [6, 6],
     });
 
-    const marker = L.marker([item.lat, item.lon], { icon })
+    L.marker([item.lat, item.lon], { icon })
       .bindPopup(
         `
-				<div style="padding: 8px;">
-					<h3 style="font-weight: bold; font-size: 16px; margin-bottom: 4px;">${item.city
-        }</h3>
-					<p style="font-size: 14px; margin: 2px 0;">
-						<strong>Status:</strong> 
-						<span style="font-weight: 500; color: ${isHighRisk ? "#dc2626" : "#16a34a"
-        };">
-							${isHighRisk ? "High Risk" : "Safe"}
-						</span>
-					</p>
-					<p style="font-size: 14px; margin: 2px 0;"><strong>Precipitation:</strong> ${(
-          item.precipitation || 0
-        ).toFixed(1)}mm</p>
-					<p style="font-size: 14px; margin: 2px 0;"><strong>Coordinates:</strong> ${item.lat.toFixed(
-          4
-        )}, ${item.lon.toFixed(4)}</p>
-				</div>
-				`
+                <div style="padding: 8px;">
+                    <h3 style="font-weight: bold; font-size: 16px; margin-bottom: 4px;">${
+                      item.city
+                    }</h3>
+                    <p style="font-size: 14px; margin: 2px 0;"><strong>Risk Category:</strong> ${displayCategory}</p>
+                    ${
+                      item.explanation
+                        ? `<p style=\"font-size: 14px; margin: 2px 0;\"><strong>Explanation:</strong> ${item.explanation}</p>`
+                        : ""
+                    }
+                    <p style="font-size: 14px; margin: 2px 0;"><strong>Precipitation:</strong> ${(
+                      item.precipitation || 0
+                    ).toFixed(1)}mm</p>
+                    <p style="font-size: 14px; margin: 2px 0;"><strong>Coordinates:</strong> ${item.lat.toFixed(
+                      4
+                    )}, ${item.lon.toFixed(4)}</p>
+                </div>
+                `
       )
       .addTo(map);
   };
@@ -188,12 +279,14 @@ export default function MapComponent({ data, type }: MapComponentProps) {
       .bindPopup(
         `
 			<div style="padding: 8px;">
-				<h3 style="font-weight: bold; font-size: 16px; margin-bottom: 4px;">${item.city
+				<h3 style="font-weight: bold; font-size: 16px; margin-bottom: 4px;">${
+          item.city
         }</h3>
 				<p style="font-size: 14px; margin: 2px 0;"><strong>Estimated Damage:</strong> $${(
           item.damage || 0
         ).toLocaleString()}</p>
-				<p style="font-size: 14px; margin: 2px 0;"><strong>Risk Level:</strong> ${item.prediction === 1 ? "High" : "Low"
+				<p style="font-size: 14px; margin: 2px 0;"><strong>Risk Level:</strong> ${
+          item.prediction === 1 ? "High" : "Low"
         }</p>
 				<p style="font-size: 14px; margin: 2px 0;"><strong>Precipitation:</strong> ${(
           item.precipitation || 0
@@ -211,62 +304,92 @@ export default function MapComponent({ data, type }: MapComponentProps) {
     type: string,
     allData: MapData[]
   ) => {
-    const getValue = (item: MapData) => {
-      return type === "rainfall"
-        ? item.precipitation || 0
-        : item.prediction || 0; // treat as probability [0,1]
-    };
+    const getValue = (it: MapData) =>
+      type === "rainfall"
+        ? it.precipitation || 0
+        : type === "reservoir"
+        ? (it.reservoirFill ?? 0)
+        : it.prediction || 0; // probability [0,1]
 
     const value = getValue(item);
     const maxValue =
       type === "rainfall"
         ? Math.max(...allData.map((d) => d.precipitation || 0))
-        : 1; // probability already normalized
+        : type === "reservoir"
+        ? 100
+        : 1;
 
-    const intensity = type === "rainfall" ? value / maxValue : value;
+    const intensity =
+      type === "rainfall"
+        ? (maxValue > 0 ? value / maxValue : 0)
+        : type === "reservoir"
+        ? Math.max(0, Math.min(1, (value as number) / 100))
+        : value;
 
-    const getColor = (intensity: number, type: string) => {
-      if (type === "rainfall") {
-        if (intensity > 0.8) return "#1e40af";
-        if (intensity > 0.6) return "#2563eb";
-        if (intensity > 0.4) return "#3b82f6";
-        if (intensity > 0.2) return "#60a5fa";
+    const getColor = (intens: number, t: string) => {
+      if (t === "rainfall") {
+        if (intens > 0.8) return "#1e40af";
+        if (intens > 0.6) return "#2563eb";
+        if (intens > 0.4) return "#3b82f6";
+        if (intens > 0.2) return "#60a5fa";
         return "#dbeafe";
-      } else {
-        // probability gradient: green -> yellow -> orange -> red
-        if (intensity > 0.8) return "#dc2626"; // red
-        if (intensity > 0.6) return "#ea580c"; // orange
-        if (intensity > 0.4) return "#f59e0b"; // amber
-        if (intensity > 0.2) return "#84cc16"; // lime
+      }
+      if (t === "reservoir") {
+        // reservoir fill color bands
+        const pct = intens * 100;
+        if (pct >= 90) return "#dc2626"; // red
+        if (pct >= 80) return "#ea580c"; // orange
+        if (pct >= 60) return "#f59e0b"; // amber
         return "#22c55e"; // green
       }
+      // probability gradient: green -> yellow -> orange -> red
+      if (intens > 0.8) return "#dc2626"; // red
+      if (intens > 0.6) return "#ea580c"; // orange
+      if (intens > 0.4) return "#f59e0b"; // amber
+      if (intens > 0.2) return "#84cc16"; // lime
+      return "#22c55e"; // green
     };
 
-    const radius =
-      type === "rainfall"
-        ? Math.max(intensity * 30000, 8000)
-        : Math.max(intensity * 30000, 12000);
+    // Scale radius consistently: 8km to 45km based on intensity [0..1]
+    const minRadius = 8000; // meters
+    const maxRadius = 45000; // meters
+    const radius = minRadius + intensity * (maxRadius - minRadius);
 
-    const circle = L.circle([item.lat, item.lon], {
+    L.circle([item.lat, item.lon], {
       color: getColor(intensity, type),
       fillColor: getColor(intensity, type),
-      fillOpacity: type === "rainfall" ? 0.7 : 0.6,
+      fillOpacity: 0.6,
       radius: radius,
     })
       .bindPopup(
         `
-			<div style="padding: 8px;">
-				<h3 style="font-weight: bold; font-size: 16px; margin-bottom: 4px;">${item.city
-        }</h3>
-				${type === "rainfall"
-          ? `<p style="font-size: 14px; margin: 2px 0;"><strong>Precipitation:</strong> ${(item.precipitation || 0).toFixed(1)}mm</p>`
-          : `<p style="font-size: 14px; margin: 2px 0;"><strong>Flood Probability:</strong> ${(Math.round((item.prediction || 0) * 100))}%</p>`
-        }
-				<p style="font-size: 14px; margin: 2px 0;"><strong>Coordinates:</strong> ${item.lat.toFixed(
-          4
-        )}, ${item.lon.toFixed(4)}</p>
-			</div>
-			`
+        <div style="padding: 8px;">
+          <h3 style="font-weight: bold; font-size: 16px; margin-bottom: 4px;">${
+            item.city
+          }</h3>
+          ${
+            type === "rainfall"
+              ? `<p style="font-size: 14px; margin: 2px 0;"><strong>Precipitation:</strong> ${(
+                  item.precipitation || 0
+                ).toFixed(1)}mm</p>`
+              : type === "reservoir"
+              ? `<p style=\"font-size: 14px; margin: 2px 0;\"><strong>Reservoir Fill:</strong> ${Number(
+                  item.reservoirFill ?? 0
+                ).toFixed(0)}%</p>`
+              : `<p style=\"font-size: 14px; margin: 2px 0;\"><strong>Flood Probability:</strong> ${Math.round(
+                  (item.prediction || 0) * 100
+                )}%</p>`
+          }
+          ${
+            item.explanation
+              ? `<p style="font-size: 14px; margin: 2px 0;"><strong>Explanation:</strong> ${item.explanation}</p>`
+              : ""
+          }
+          <p style="font-size: 14px; margin: 2px 0;"><strong>Coordinates:</strong> ${item.lat.toFixed(
+            4
+          )}, ${item.lon.toFixed(4)}</p>
+        </div>
+        `
       )
       .addTo(map);
   };
@@ -280,12 +403,49 @@ export default function MapComponent({ data, type }: MapComponentProps) {
           {type === "prediction" && (
             <>
               <div className="flex items-center text-xs">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                <span>Safe Areas</span>
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#22c55e" }}
+                ></div>
+                <span>Low</span>
               </div>
               <div className="flex items-center text-xs">
-                <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                <span>High Risk Areas</span>
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#f59e0b" }}
+                ></div>
+                <span>Medium</span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#ef4444" }}
+                ></div>
+                <span>High</span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#991b1b" }}
+                ></div>
+                <span>Critical</span>
+              </div>
+              <div className="h-px bg-gray-200 my-2" />
+              <div className="text-xs font-medium mb-1">Explanations</div>
+              <div className="max-h-40 overflow-auto pr-1 space-y-1">
+                {data
+                  .filter((d) => !!d.explanation)
+                  .map((d, idx) => (
+                    <div key={idx} className="text-[11px] text-gray-700">
+                      <span className="font-semibold">{d.city}:</span>{" "}
+                      {d.explanation}
+                    </div>
+                  ))}
+                {data.every((d) => !d.explanation) && (
+                  <div className="text-[11px] text-gray-400">
+                    No explanations available
+                  </div>
+                )}
               </div>
             </>
           )}
@@ -308,12 +468,39 @@ export default function MapComponent({ data, type }: MapComponentProps) {
           {type === "flood" && (
             <>
               <div className="flex items-center text-xs">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                <span>Low Probability</span>
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#22c55e" }}
+                ></div>
+                <span>0–20%</span>
               </div>
               <div className="flex items-center text-xs">
-                <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                <span>High Probability</span>
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#84cc16" }}
+                ></div>
+                <span>20–40%</span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#f59e0b" }}
+                ></div>
+                <span>40–60%</span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#ea580c" }}
+                ></div>
+                <span>60–80%</span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#dc2626" }}
+                ></div>
+                <span>80–100%</span>
               </div>
             </>
           )}
@@ -326,6 +513,38 @@ export default function MapComponent({ data, type }: MapComponentProps) {
               <div className="flex items-center text-xs">
                 <div className="w-3 h-3 bg-blue-400 rounded-full mr-2"></div>
                 <span>Low Intensity</span>
+              </div>
+            </>
+          )}
+          {type === "reservoir" && (
+            <>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#22c55e" }}
+                ></div>
+                <span>{"< 60%"}</span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#f59e0b" }}
+                ></div>
+                <span>60–80%</span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#ea580c" }}
+                ></div>
+                <span>80–90%</span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: "#dc2626" }}
+                ></div>
+                <span>{">= 90%"}</span>
               </div>
             </>
           )}

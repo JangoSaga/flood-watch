@@ -4,8 +4,9 @@ from typing import Dict, List, Optional, Union
 
 # File paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CITY_DISTRICT_CSV = os.path.join(BASE_DIR, 'data', 'city_district_mapping.csv')
-CITY_RESERVOIR_CSV = os.path.join(BASE_DIR, 'data', 'city_reservoir_mapping.csv')
+project_root = os.path.dirname(BASE_DIR)
+CITY_DISTRICT_CSV = os.path.join(project_root, 'data', 'city_district_mapping.csv')
+CITY_RESERVOIR_CSV = os.path.join(project_root, 'data', 'city_reservoir_mapping.csv')
 
 def load_city_district_mapping() -> Dict[str, str]:
     """Load city to district mapping from CSV"""
